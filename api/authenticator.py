@@ -30,7 +30,7 @@ class FurEverHomeAuthenticator(Authenticator):
     def get_account_data_for_cookie(self, account: AccountOut):
         # Return the username and the data for the cookie.
         # You must return TWO values from this method.
-        return account.username, AccountOut(**account.dict())
+        return account.email, AccountOut(**account.dict())
 
 
 authenticator = FurEverHomeAuthenticator(os.environ["SIGNING_KEY"])
