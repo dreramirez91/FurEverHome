@@ -44,15 +44,8 @@ class AccountQueries:
                 output["id"] = record[0]
                 output["hashed_password"] = record[1]
                 output["full_name"] = record[2]
-                output["email"] = email
-                return AccountOutWithPassword(**output)
-
-    # return AccountOutWithPassword(
-    #                     id=record[0],
-    #                     hashed_password=record[1],
-    #                     full_name=record[2],
-    #                     email=email,
-    #                 )
+                return AccountOutWithPassword(**output, email=email)
+            # tuple to dict splat dict
 
     def create(
         self, info: AccountIn, hashed_password: str
@@ -67,9 +60,8 @@ class AccountQueries:
                         (%s, %s, %s)
                     RETURNING id;
                     """,
-                    [info.email, info.password, info.full_name],
+                    [info.email, hashed_password, info.full_name],
                 )
-                print(result.fetchone())
                 id = result.fetchone()[0]
                 old_data = info.dict()
                 old_data["hashed_password"] = hashed_password
