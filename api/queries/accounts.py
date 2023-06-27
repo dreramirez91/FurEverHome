@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 from queries.pool import pool
 
+# from authenticator import FurEverHomeAuthenticator
+
 
 class DuplicateAccountError(ValueError):
     pass
@@ -22,24 +24,39 @@ class AccountOutWithPassword(AccountOut):
     hashed_password: str
 
 
-class AccountQueries():
-
+class AccountQueries:
     def get(self, email: str) -> AccountOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
                     """
-                    SELECT id, email, hashed_password, full_name
+                    SELECT id,hashed_password, full_name
                     FROM account
-                    """
+                    WHERE email = %s
+                    """,
+                    (email,),
                 )
                 record = result.fetchone()
+                print("RECORD", record)
                 if record is None:
                     return None
-                #turn into AccountOutWithPassword
-                return self.AccountOutWithPassword(record)
+                output = {}
+                output["id"] = record[0]
+                output["hashed_password"] = record[1]
+                output["full_name"] = record[2]
+                output["email"] = email
+                return AccountOutWithPassword(**output)
 
-    def create(self, info: AccountIn, hashed_password: str) -> AccountOutWithPassword:
+    # return AccountOutWithPassword(
+    #                     id=record[0],
+    #                     hashed_password=record[1],
+    #                     full_name=record[2],
+    #                     email=email,
+    #                 )
+
+    def create(
+        self, info: AccountIn, hashed_password: str
+    ) -> AccountOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
@@ -50,12 +67,9 @@ class AccountQueries():
                         (%s, %s, %s)
                     RETURNING id;
                     """,
-                    [
-                        info.email,
-                        info.password,
-                        info.full_name
-                    ]
+                    [info.email, info.password, info.full_name],
                 )
+                print(result.fetchone())
                 id = result.fetchone()[0]
                 old_data = info.dict()
                 old_data["hashed_password"] = hashed_password
