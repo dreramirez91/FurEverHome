@@ -29,3 +29,6 @@ async def create_dog(
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     return repo.create(dog)
+
+
+# WHY WE DON'T HAVE A FIELD IN SWAGGER FOR OWNER_ID

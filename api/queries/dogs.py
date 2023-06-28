@@ -32,7 +32,7 @@ class DogOut(BaseModel):
 
 
 class DogQueries:
-    def create(self, dog: DogIn) -> DogOut:
+    def create(self, rehomer_id, dog: DogIn) -> DogOut:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
@@ -40,7 +40,7 @@ class DogQueries:
                     INSERT INTO dog
                         (name, age, picture_url, sex, breed, spayed_neutered, adopted, reason, address_city, address_state, rehomer_id)
                     VALUES
-                        (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, SELECT rehomer_id )
+                        (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                     RETURNING id;
                     """,
                     [
@@ -54,6 +54,7 @@ class DogQueries:
                         dog.reason,
                         dog.address_city,
                         dog.address_state,
+                        rehomer_id,
                     ],
                 )
                 id = result.fetchone()[0]
