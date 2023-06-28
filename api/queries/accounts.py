@@ -37,7 +37,6 @@ class AccountQueries:
                     (email,),
                 )
                 record = result.fetchone()
-                print("RECORD", record)
                 if record is None:
                     return None
                 output = {}
