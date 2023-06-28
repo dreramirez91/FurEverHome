@@ -38,9 +38,9 @@ class DogQueries:
                 result = db.execute(
                     """
                     INSERT INTO dog
-                        (name, age, picture_url, sex, breed, spayed_neutered, adopted, reason, address_city, address_state)
+                        (name, age, picture_url, sex, breed, spayed_neutered, adopted, reason, address_city, address_state, rehomer_id)
                     VALUES
-                        (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                        (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, SELECT rehomer_id )
                     RETURNING id;
                     """,
                     [
@@ -58,6 +58,7 @@ class DogQueries:
                 )
                 id = result.fetchone()[0]
                 # do we need rehomer_id in 41? rehomer_id = ??? or does it automatically populate?
+                # pass owner_id as an argument to the create function, then use that to match
                 return self.dog_in_to_out(id, dog)
 
     def dog_in_to_out(self, id: int, dog: DogIn):

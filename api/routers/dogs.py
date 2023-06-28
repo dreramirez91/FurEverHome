@@ -22,7 +22,7 @@ from queries.dogs import (
 router = APIRouter()
 
 
-@router.post("/api/{owner_id}/dogs", response_model=DogOut)
+@router.post("/api/dogs/{owner_id}", response_model=DogOut)
 async def create_dog(
     dog: DogIn,
     repo: DogQueries = Depends(),
