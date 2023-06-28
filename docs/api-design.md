@@ -1,13 +1,15 @@
 ### Log in
-* Endpoint path: /token
-* Endpoint method: POST
 
-* Request shape (form):
-  * username: str
-  * password: str
+- Endpoint path: /token
+- Endpoint method: POST
 
-* Response: Account information and a token
-* Response shape (JSON):
+- Request shape (form):
+
+  - username: str
+  - password: str
+
+- Response: Account information and a token
+- Response shape (JSON):
   ```json
     {
       "account": {
@@ -18,24 +20,28 @@
   ```
 
 ### Log out
-* Endpoint path: /token
-* Endpoint method: DELETE
 
-* Headers:
-  * Authorization: Bearer token
+- Endpoint path: /token
+- Endpoint method: DELETE
 
-* Response: Always true
-* Response shape (JSON):
+- Headers:
+
+  - Authorization: Bearer token
+
+- Response: Always true
+- Response shape (JSON):
   ```json
   true
   ```
 
 ### Sign Up
-* Endpoint path: /api/accounts
-* Endpoint method: POST
 
-* Request shape (JSON):
-  ```json 
+- Endpoint path: /api/accounts
+- Endpoint method: POST
+
+- Request shape (JSON):
+
+  ```json
     {
       "username":str,
       "password": str,
@@ -44,20 +50,22 @@
       }
   ```
 
-* Response: User account gets created
-* Response shape (JSON):
-  ```json 
+- Response: User account gets created
+- Response shape (JSON):
+  ```json
   {
     "message": str
   }
   ```
 
 ### Read/Listing all dogs
-* Endpoint path: /api/dogs
-* Enpoint method: GET
 
-* Response: A list of dogs
-* Response shape:
+- Endpoint path: /api/dogs
+- Enpoint method: GET
+
+- Response: A list of dogs
+- Response shape:
+
 ```json
     {
         "dogs": [
@@ -78,11 +86,13 @@
 ```
 
 ### List of rehomer's dogs
-* Endpoint path: /api/dogs/{owner_id}
-* Endpoint method: GET
 
-* Response: A list of dogs
-* Response shape:
+- Endpoint path: /api/dogs/{owner_id}
+- Endpoint method: GET
+
+- Response: A list of dogs
+- Response shape:
+
 ```json
     {
         "dogs": [
@@ -93,25 +103,29 @@
                 "picture_url": str,
                 "sex": str,
                 "breed": str,
-                "spayed/neutered": bool,
+                "spayed_neutered": bool,
                 "adopted": bool,
                 "reason": text,
                 "date_posted": date,
                 "owner_id": int,
+                "address_city": str,
+                "address_state": str,
             }
         ]
     }
 ```
 
 ### Add a new dog
-* Endpoint path: /api/dogs/{owner_id}
-* Endpoint method: POST
 
-* Headers:
-*Authorization: Bearer token
+- Endpoint path: /api/dogs/{owner_id}
+- Endpoint method: POST
 
-* Request: A form to add a new dog for rehoming
-* Request shape:
+- Headers:
+  \*Authorization: Bearer token
+
+- Request: A form to add a new dog for rehoming
+- Request shape:
+
 ```json
     {
         "name": str,
@@ -119,15 +133,18 @@
         "picture_url": str,
         "sex": str,
         "breed": str,
-        "spayed/neutered": bool,
+        "spayed_neutered": bool,
         "adopted": bool,
         "reason": str,
         "date_posted": date NOW,
+        "address_city": str,
+        "address_state": str,
     }
 ```
 
-* Response: A list of that rehomer's dogs
-* Response shape:
+- Response: A list of that rehomer's dogs
+- Response shape:
+
 ```json
     {
         "dogs": [
@@ -138,37 +155,44 @@
                 "picture_url": str,
                 "sex": str,
                 "breed": str,
-                "spayed/neutered": bool,
+                "spayed_neutered": bool,
                 "adopted": bool,
                 "reason": text,
                 "date_posted": date,
                 "owner_id": int,
+                "address_city": str,
+                "address_state": str,
             }
         ]
     }
 ```
 
 ### Edit a dog
-* Endpoint path: /api/dogs/{owner_id}/{dog_id}
-* Endpoint method: PUT
 
-* Headers:
-* Authorization: Bearer token
+- Endpoint path: /api/dogs/{owner_id}/{dog_id}
+- Endpoint method: PUT
 
-* Request: A form to edit a single dog's information
-* Request shape:
+- Headers:
+- Authorization: Bearer token
+
+- Request: A form to edit a single dog's information
+- Request shape:
+
 ```json
     {
         "age": int,
         "picture_url": str,
-        "spayed/neutered": bool,
+        "spayed_neutered": bool,
         "adopted": bool,
-        "reason": str,
+        "reason": text,
+        "address_city": str,
+        "address_state": str,
     }
 ```
 
-* Response: A list of that rehomer's dogs
-* Response shape:
+- Response: A list of that rehomer's dogs
+- Response shape:
+
 ```json
     {
         "dogs": [
@@ -179,11 +203,13 @@
                 "picture_url": str,
                 "sex": str,
                 "breed": str,
-                "spayed/neutered": bool,
+                "spayed_neutered": bool,
                 "adopted": bool,
                 "reason": text,
                 "date_posted": date,
                 "owner_id": int,
+                "address_city": str,
+                "address_state": str,
             }
         ]
     }
@@ -191,16 +217,17 @@
 
 ### Delete a dog
 
-* Endpoint path: /api/dogs/{owner_id}/{dog_id}
-* Endpoint method: DELETE
+- Endpoint path: /api/dogs/{owner_id}/{dog_id}
+- Endpoint method: DELETE
 
-* Headers:
-* Authorization: Bearer token
+- Headers:
+- Authorization: Bearer token
 
-* Response: An indication of success or failure
-* Response shape:
+- Response: An indication of success or failure
+- Response shape:
+
 ```json
-    {
-        "delete": true
-    }
+{
+  "delete": true
+}
 ```

@@ -50,6 +50,8 @@ class AccountQueries:
     def create(
         self, info: AccountIn, hashed_password: str
     ) -> AccountOutWithPassword:
+        if self.get(info.email) is not None:
+            raise DuplicateAccountError
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
