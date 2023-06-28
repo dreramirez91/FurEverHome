@@ -57,6 +57,7 @@ class DogQueries:
                     ],
                 )
                 id = result.fetchone()[0]
+                # do we need rehomer_id in 41? rehomer_id = ??? or does it automatically populate?
                 return self.dog_in_to_out(id, dog)
 
     def dog_in_to_out(self, id: int, dog: DogIn):
