@@ -1,2 +1,5 @@
 ## June 26, 2023
 First day with the repository and we organized our thoughts on our trello board. Today we focused on API endpoints and watching the JWTdown FastApi video. We decided on going with PostgreSQL for our database and to begin coding authentication tomorrow. Overall we're more than prepared and I feel confident in our ability to work as a team. We plan on taking turns every thirty minutes to code for the back end. Once we get to the front end we will go into pairs and work on feature branches. We agreed on using the Gong method to annouce pushing and pulling, hoping to minimize merge conflicts and stay up-to-date with the code.
+
+## June 27, 2023
+We successfully completed our backend without personalized data, following along Curtis' video and taking turns coding. The wireframe, api design and journals have been added to the repository. Our database is set up and we are connected to both fastapi and react. We are on schedule and did a great job communicating throughout our first day coding.
