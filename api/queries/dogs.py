@@ -1,4 +1,4 @@
-from pydnatic import BaseModel
+from pydantic import BaseModel
 from queries.pool import pool
 from datetime import date
 
@@ -27,7 +27,6 @@ class DogOut(BaseModel):
     adopted: bool
     reason: str
     date_posted: date
-    rehomer_id: int
     address_city: str
     address_state: str
 
