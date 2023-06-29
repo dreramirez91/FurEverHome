@@ -3,3 +3,6 @@ First day with the repository and we organized our thoughts on our trello board.
 
 ## June 27, 2023
 We successfully completed our backend without personalized data, following along Curtis' video and taking turns coding. The wireframe, api design and journals have been added to the repository. Our database is set up and we are connected to both fastapi and react. We are on schedule and did a great job communicating throughout our first day coding.
+
+## June 28, 2023
+Our next goal is to finish setting up the tables for our database and creating queries and routers for each. We ran into an issue with connecting the account_id to the rehomer_id. We had to individually delete our tables in the database and pull in the new tables to fix this. We are still looking into why it may not be connecting. On a positive note, we were able to add the DuplicateAccountError HTTPException to the create account function resulting in a 400 if that were to occur.
