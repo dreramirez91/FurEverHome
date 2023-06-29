@@ -34,6 +34,7 @@ class DogOut(BaseModel):
 
 class DogQueries:
     datenow = date.today()
+
     def create(self, dog: DogIn, rehomer_id: int) -> DogOut:
         with pool.connection() as conn:
             with conn.cursor() as db:
@@ -94,6 +95,18 @@ class DogQueries:
                 output = {}
                 output["dogs"] = result
                 return output
+
+    def delete_dog(self, dog_id: int):
+        with pool.connection() as conn:
+            with conn.cursor() as db:
+                db.execute(
+                    """
+                    DELETE FROM dog
+                    WHERE id = %s
+                    """,
+                    [dog_id]
+                )
+                return True
 
     def dog_in_to_out(self, id: int, dog: DogIn, rehomer_id: int):
         old_data = dog.dict()

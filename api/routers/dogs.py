@@ -37,3 +37,12 @@ async def list_all_dogs(
     repo: DogQueries = Depends(),
 ):
     return repo.list_all_dogs()
+
+
+@router.delete("/dog/{dog_id}")
+async def delete_dog(
+    dog_id: int,
+    repo: DogQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    return repo.delete_dog(dog_id)
