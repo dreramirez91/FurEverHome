@@ -62,6 +62,7 @@ class DogQueries:
                 )
                 id = result.fetchone()[0]
                 return self.dog_in_to_out(id, dog, rehomer_id)
+
     def dog_in_to_out(self, id: int, dog: DogIn, rehomer_id: int):
         old_data = dog.dict()
-        return DogOut(id=id,date_posted=self.datenow,rehomer_id=rehomer_id, **old_data)
+        return DogOut(id=id, date_posted=self.datenow, rehomer_id=rehomer_id, **old_data)

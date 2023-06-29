@@ -12,7 +12,7 @@ steps = [
             spayed_neutered BOOL DEFAULT FALSE NOT NULL,
             adopted BOOL DEFAULT FALSE NOT NULL,
             reason TEXT NOT NULL,
-            date_posted DATE DEFAULT NOT NULL,
+            date_posted DATE NOT NULL,
             address_city VARCHAR(100) NOT NULL,
             address_state VARCHAR(100) NOT NULL,
             rehomer_id INT NOT NULL,
