@@ -6,3 +6,6 @@ Starting Auth and attempting to finish, then continue on from there.
 
 June 28, 2023, (Day 3) -
 Finished Auth now need to start forming the pages for front end as well as some more things for back end regarding the personalized information.
+
+June 29, 2023, (Day 4) -
+Working on finishing the rest of the backend and then contuing on to Friday!
