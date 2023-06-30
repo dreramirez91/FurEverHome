@@ -5,4 +5,6 @@ Taking next steps in Auth coding, discussing how code will look with SQL. Beginn
 ## 6/28
 Finished Auth last night. Discussing objectives for today TBD - We will be working on backend FastAPI - Foreign Key blockers
 ## 6/29
-Adding additions CRUD backend methods today routers and accounts - Continuing to mob code - No blockers
+Adding additions CRUD backend methods today routers and accounts - Continuing to mob code - No blockers - End of day update Finished CRUD - some bug issues on update function. Finished delete, post, get_all, get_list endpoints. Working on update
+## 6/30
+Finished CRUD yesterday. Update needs to be finished, some debugging blockers around Update. Objective for the day is to finish CRUD and start on the FE
