@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from queries.pool import pool
 from datetime import date
-from typing import List, Dict
+from typing import List, Dict, Union
 
 
 class DogIn(BaseModel):
@@ -31,6 +31,17 @@ class DogOut(BaseModel):
     rehomer_id: int
     address_city: str
     address_state: str
+
+
+class UpdateDogIn(BaseModel):
+    age: int
+    picture_url: str
+    spayed_neutered: bool
+    adopted: bool
+    reason: str
+    address_city: str
+    address_state: str
+
 
 
 class DogQueries:
@@ -141,7 +152,41 @@ class DogQueries:
                 )
                 return True
 
-    def dog_in_to_out(self, id: int, dog: DogIn, rehomer_id: int):
+    def update_dog(self, dog: UpdateDogIn, dog_id: int):
+        with pool.connection() as conn:
+            with conn.cursor() as db:
+                print(db.description)
+                result = db.execute(
+                    """
+                    UPDATE dog
+                    SET age = %s,
+                    picture_url = %s,
+                    spayed_neutered = %s,
+                    adopted = %s,
+                    reason = %s,
+                    address_city = %s,
+                    address_state = %s
+                    WHERE id = %s
+                    RETURNING rehomer_id,name,breed,sex;
+                    """,
+                    [dog.age, dog.picture_url, dog.spayed_neutered, dog.adopted, dog.reason, dog.address_city, dog.address_state, dog_id]
+                )
+                id = dog_id
+                print(result.fetchone())
+                rehomer_id = result.fetchone()[0]
+                name = result.fetchone()[1]
+                breed = result.fetchone()[2]
+                sex = result.fetchone()[3]
+                return self.update_dog_in_to_out(id, dog, rehomer_id,name,breed,sex)
+
+
+    def update_dog_in_to_out(self, id: int, dog: UpdateDogIn, rehomer_id: int, name: str, breed: str, sex: bool):
+        old_data = dog.dict()
+        return DogOut(
+            id=id, date_posted=self.datenow, rehomer_id=rehomer_id, name=name, breed = breed, sex = sex, **old_data
+        )
+
+    def dog_in_to_out(self, id: int, dog: Union[DogIn, UpdateDogIn], rehomer_id: int):
         old_data = dog.dict()
         return DogOut(
             id=id, date_posted=self.datenow, rehomer_id=rehomer_id, **old_data
