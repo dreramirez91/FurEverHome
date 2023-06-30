@@ -182,6 +182,7 @@ class DogQueries:
                 )
                 more_old_data = result.fetchall()
                 # every time you fetch one it moves the cursor which makes it out of range
+                # also changed sex to str on 202
                 rehomer_id = more_old_data[0][0]
                 name = more_old_data[0][1]
                 breed = more_old_data[0][2]
