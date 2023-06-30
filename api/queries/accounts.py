@@ -1,8 +1,6 @@
 from pydantic import BaseModel
 from queries.pool import pool
 
-# from authenticator import FurEverHomeAuthenticator
-
 
 class DuplicateAccountError(ValueError):
     pass
@@ -44,11 +42,13 @@ class AccountQueries:
                 output["hashed_password"] = record[1]
                 output["full_name"] = record[2]
                 return AccountOutWithPassword(**output, email=email)
-            # tuple to dict splat dict
 
     def create(
         self, info: AccountIn, hashed_password: str
     ) -> AccountOutWithPassword:
+        # ???
+        if self.get(info.email) is not None:
+            raise DuplicateAccountError
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
