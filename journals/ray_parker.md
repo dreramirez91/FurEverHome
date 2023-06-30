@@ -6,3 +6,6 @@ We successfully completed our backend without personalized data, following along
 
 ## June 28, 2023
 Our next goal is to finish setting up the tables for our database and creating queries and routers for each. We ran into an issue with connecting the account_id to the rehomer_id. We had to individually delete our tables in the database and pull in the new tables to fix this. We are still looking into why it may not be connecting. On a positive note, we were able to add the DuplicateAccountError HTTPException to the create account function resulting in a 400 if that were to occur.
+
+## June 29, 2023
+We're almost finished with our backend. We made progress as a team on the CRUD operations for the dog table in the routers and queries. There were a few erors we ran into and were able to fix most. Update dog is still a work in progress.
