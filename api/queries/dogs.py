@@ -180,10 +180,8 @@ class DogQueries:
                         dog_id,
                     ],
                 )
-                more_old_data = []
-                for var in result.fetchall():
-                    more_old_data.append(var)
-                print("MORE OLD DATA:", more_old_data)
+                more_old_data = result.fetchall()
+                # every time you fetch one it moves the cursor which makes it out of range
                 rehomer_id = more_old_data[0][0]
                 name = more_old_data[0][1]
                 breed = more_old_data[0][2]
