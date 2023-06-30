@@ -155,7 +155,6 @@ class DogQueries:
         print(dog.dict())
         with pool.connection() as conn:
             with conn.cursor() as db:
-                print(db.description)
                 result = db.execute(
                     """
                     UPDATE dog
@@ -213,7 +212,11 @@ class DogQueries:
         )
 
     def dog_in_to_out(
-        self, id: int, dog: Union[DogIn, UpdateDogIn], rehomer_id: int
+        self,
+        id: int,
+        dog: Union[DogIn, UpdateDogIn],
+        rehomer_id: int
+        # remove updatedogin here
     ):
         old_data = dog.dict()
         return DogOut(
