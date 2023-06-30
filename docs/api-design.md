@@ -79,7 +79,11 @@
                 "spayed/neutered": bool,
                 "adopted": bool,
                 "date_posted": date,
-                "owner_id": int,
+                "rehomer_id": int,
+                "address_city": str,
+                "address_state": str,
+                "reason": str,
+
             }
         ]
     }
