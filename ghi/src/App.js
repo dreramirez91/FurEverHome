@@ -6,10 +6,14 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
-      <ErrorNotification error={error} />
-      <Construct info={launchInfo} />
-    </div>
+    <BrowserRouter>
+      {/* <Nav/> */}
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
