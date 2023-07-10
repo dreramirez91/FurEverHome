@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useToken } from "@galvanize-inc/jwtdown-for-react";
 
-function Login() {
+function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useToken();
 
   const handleUsernameChange = (e) => {
     const value = e.target.value;
@@ -16,27 +18,15 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    login(username, password);
+    e.target.reset();
+    // const loginResponse = await fetch(loginUrl, fetchConfig);
+    // if (loginResponse.ok) {
+    //   const newLogin = await loginResponse.json();
 
-    const data = {};
-
-    data.username = username;
-    data.password = password;
-
-    const loginUrl = "http://localhost:8000/api/token/";
-    const fetchConfig = {
-      method: "post",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    const loginResponse = await fetch(loginUrl, fetchConfig);
-    if (loginResponse.ok) {
-      const newLogin = await loginResponse.json();
-
-      setUsername("");
-      setPassword("");
-    }
+    //   setUsername("");
+    //   setPassword("");
+    // }
   };
   return (
     <>
@@ -44,7 +34,7 @@ function Login() {
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
             <h1>Login</h1>
-            <form onSubmit={handleSubmit} id="account-login">
+            <form onSubmit={(e) => handleSubmit(e)} id="account-login">
               <div className="form-floating mb-3">
                 <input
                   onChange={handleUsernameChange}
@@ -80,4 +70,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginForm;
