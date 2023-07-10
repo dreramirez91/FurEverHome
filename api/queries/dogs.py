@@ -187,6 +187,11 @@ class DogQueries:
                 breed = more_old_data[0][2]
                 sex = more_old_data[0][3]
                 id = dog_id
+                print(result.fetchone())
+                rehomer_id = result.fetchone()[0]
+                name = result.fetchone()[1]
+                breed = result.fetchone()[2]
+                sex = result.fetchone()[3]
                 return self.update_dog_in_to_out(
                     id, dog, rehomer_id, name, breed, sex
                 )
@@ -212,11 +217,7 @@ class DogQueries:
         )
 
     def dog_in_to_out(
-        self,
-        id: int,
-        dog: Union[DogIn, UpdateDogIn],
-        rehomer_id: int
-        # remove updatedogin here
+        self, id: int, dog: Union[DogIn, UpdateDogIn], rehomer_id: int
     ):
         old_data = dog.dict()
         return DogOut(
