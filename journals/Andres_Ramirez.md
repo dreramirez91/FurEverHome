@@ -17,3 +17,7 @@ Yesterday, our team successfully established a foreign key relationship between 
 Day 5 - 6/30
 
 Yesterday, our team finished all backend API endpoints aside from update, which we started but had a bug on. Today, we will be debugging the update API endpoint, reviewing our codebase, and starting the frontend. No blockers.
+
+Day 6 - 7/10
+
+Before the break, our team completed all backend API endpoints for our MVP. Today, we worked on the frontend homepage, login, and signup forms. Our current blocker is frontend auth. We will be looking at that more closely following the lecture tomorrow.
