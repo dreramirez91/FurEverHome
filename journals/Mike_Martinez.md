@@ -8,3 +8,5 @@ Finished Auth last night. Discussing objectives for today TBD - We will be worki
 Adding additions CRUD backend methods today routers and accounts - Continuing to mob code - No blockers - End of day update Finished CRUD - some bug issues on update function. Finished delete, post, get_all, get_list endpoints. Working on update
 ## 6/30
 Finished CRUD yesterday. Update needs to be finished, some debugging blockers around Update. Objective for the day is to finish CRUD and start on the FE
+## 7/10
+Discussing next Steps for Front End - Started Coding Front End - Goals to complete are Home, APP, Nav, SignUp and LogIn pages on react. Only Blockers are Auth for FE 
