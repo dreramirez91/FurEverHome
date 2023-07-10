@@ -9,3 +9,9 @@ Our next goal is to finish setting up the tables for our database and creating q
 
 ## June 29, 2023
 We're almost finished with our backend. We made progress as a team on the CRUD operations for the dog table in the routers and queries. There were a few erors we ran into and were able to fix most. Update dog is still a work in progress.
+
+## June 30, 2023
+We are taking the day to catch up on explorations since we are at a good stopping point. Summer break will be from July 3-7.
+
+## July 10, 2023
+The front-end has a good template for a home, app, nav, signup, and login. Tomorrow we will start front-end authentication. Currently we're ahead of schedule and brainstorming what we need to accomplish next.
