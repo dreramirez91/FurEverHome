@@ -12,8 +12,12 @@ Yesterday, our team finished backend authentication except for the duplicate err
 
 Day 4 - 6/29
 
+<<<<<<< Updated upstream
 Yesterday, our team successfully established a foreign key relationship between the account and dog tables. We also finished the create dog API endpoint. Today, we plan on tackling list dog, delete dog, and edit dog. No blockers.
 
 Day 5 - 6/30
 
 Yesterday, our team finished all backend API endpoints aside from update, which we started but had a bug on. Today, we will be debugging the update API endpoint, reviewing our codebase, and starting the frontend. No blockers.
+=======
+Yesterday, our team successfully established a foreign key relationship between the account and dog tables. We also finished the create dog API endpoint. Today, we plan as tackling list dog, delete dog, and edit dog. No blockers.
+>>>>>>> Stashed changes
