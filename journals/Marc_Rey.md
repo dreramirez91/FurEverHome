@@ -12,3 +12,6 @@ Working on finishing the rest of the backend and then contuing on to Friday!
 
 June 30, 2023, (Day 5) -
 Finishing mob coding for backend specifically backend CRUD, small debugging but moving on to frontend afterwards
+
+July 10, 2023, (Day 6) -
+Started coding the frontend, added Login, Home, Signup, and App so far. Going to continue the rest of the day added the baseline/outline of the frontend so that we can work on authentication afterwards. Blockers we have are figuring out the authentication for the frontend, the backend auth works and the information is easily processed and displayed..
