@@ -9,4 +9,6 @@ Adding additions CRUD backend methods today routers and accounts - Continuing to
 ## 6/30
 Finished CRUD yesterday. Update needs to be finished, some debugging blockers around Update. Objective for the day is to finish CRUD and start on the FE
 ## 7/10
-Discussing next Steps for Front End - Started Coding Front End - Goals to complete are Home, APP, Nav, SignUp and LogIn pages on react. Only Blockers are Auth for FE 
+Discussing next Steps for Front End - Started Coding Front End - Goals to complete are Home, APP, Nav, SignUp and LogIn pages on react. Only Blockers are Auth for FE
+## 7/11
+Debugging Auth Front End blockers having issues when logging in. We are coding independently for the first half of the day to see if we can come up with a solution.
