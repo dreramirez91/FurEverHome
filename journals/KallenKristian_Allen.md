@@ -15,3 +15,6 @@ We accomplished a lot of work yesterday on the backend, but ended on debugging o
 
 07/10/23
 We officially completed the backend before going on summer break. Today is our first day back and we got off to a good start but have encountered some errors on our front end auth. We went through the exploration and decided we should watch the lecture tomorrow before digging into it more. Will continue working on other parts of our front end.
+
+07/11/23
+Starting with auth as a blocker. Debugging auth will be our focus today before moving onto any other parts.
