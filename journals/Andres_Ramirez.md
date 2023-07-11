@@ -21,3 +21,7 @@ Yesterday, our team finished all backend API endpoints aside from update, which 
 Day 6 - 7/10
 
 Before the break, our team completed all backend API endpoints for our MVP. Today, we worked on the frontend homepage, login, and signup forms. Our current blocker is frontend auth. We will be looking at that more closely following the lecture tomorrow.
+
+Day 7 - 7/11
+
+Yesterday, our team worked on the homepage, login, and signup functions. We struggled with various bugs relating to frontend auth. We plan on tackling those today.
