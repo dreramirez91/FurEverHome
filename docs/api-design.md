@@ -45,7 +45,7 @@
     {
       "username":str,
       "password": str,
-      "email": str,
+      "username": str,
       "phone": int,
       }
   ```

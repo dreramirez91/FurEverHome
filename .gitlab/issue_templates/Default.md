@@ -4,7 +4,7 @@ This section is a high level overview of what this task includes i.e. a user sto
 
 ### Acceptance Criteria:
 
-- [ ] As a new user, I can enter my email and password into a form on the frontend
+- [ ] As a new user, I can enter my username and password into a form on the frontend
 - [ ] This sends a request to the backend which creates a row in the DB
 - [ ] A 200 response is sent to the frontend and the user is redirected to their dashboard (a page only visible when logged in)
 

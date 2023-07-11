@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 
 function Signup() {
-  const [email, setEmail] = useState("");
+  const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [terms, setTerms] = useState(false);
-  const { token } = useAuthContext();
+  const { register } = useToken();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -32,16 +31,21 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const signUpData = {};
+    const signUpData = {
+      username: username,
+      password: password,
+      full_name: firstName + " " + lastName,
+    };
+    register(signUpData, "http://localhost:8000/api/accounts/");
 
-    const signupResponse = await fetch(signupUrl, fetchConfig);
-    if (signupResponse.ok) {
-      setEmail("");
-      setPassword("");
-      setFirstName("");
-      setLastName("");
-      setTerms(false);
-    }
+    // const signupResponse = await fetch(signupUrl, fetchConfig);
+    // if (signupResponse.ok) {
+    //   setEmail("");
+    //   setPassword("");
+    //   setFirstName("");
+    //   setLastName("");
+    //   setTerms(false);
+    // }
   };
 
   return (
@@ -54,15 +58,15 @@ function Signup() {
               <div className="form-floating mb-3">
                 <input
                   onChange={handleEmailChange}
-                  value={email}
-                  placeholder="email"
+                  value={username}
+                  placeholder="username"
                   required
                   type="text"
-                  id="email"
-                  name="email"
+                  id="username"
+                  name="username"
                   className="form-control"
                 />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="username">username</label>
               </div>
               <div className="form-floating mb-3">
                 <input
