@@ -36,9 +36,10 @@ function Signup() {
       password: password,
       full_name: firstName + " " + lastName,
     };
-    register(signUpData, "http://localhost:8000/api/accounts/");
-
-    // const signupResponse = await fetch(signupUrl, fetchConfig);
+    const happyMan = register(
+      signUpData,
+      "http://localhost:8000/api/accounts/"
+    );
     // if (signupResponse.ok) {
     //   setEmail("");
     //   setPassword("");

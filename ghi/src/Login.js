@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useToken } from "@galvanize-inc/jwtdown-for-react";
+import useToken from "@galvanize-inc/jwtdown-for-react";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
