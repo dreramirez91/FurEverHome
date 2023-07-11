@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
+import useToken from "@galvanize-inc/jwtdown-for-react";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -31,23 +32,7 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const data = {
-      email,
-      password,
-      full_name: firstName + " " + lastName,
-      terms,
-    };
-
-    const signupUrl = "http://localhost:8000/api/accounts/";
-    const fetchConfig = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      method: "post",
-      body: JSON.stringify(data),
-    };
+    const signUpData = {};
 
     const signupResponse = await fetch(signupUrl, fetchConfig);
     if (signupResponse.ok) {
