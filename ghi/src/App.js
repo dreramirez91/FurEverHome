@@ -8,7 +8,7 @@ import Login from "./Login.js";
 import "./App.css";
 
 function App() {
-  const baseUrl = process.env.REACT_APP_API_HOST || "http://localhost:8000";
+  const baseUrl = process.env.REACT_APP_API_HOST;
 
   return (
     <AuthProvider baseUrl={baseUrl}>
