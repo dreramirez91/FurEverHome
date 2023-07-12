@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Home from "./Home.js";
 import Signup from "./Signup.js";
 import Login from "./Login.js";
+import Create_Dog from "./Create_Dog.js";
 // import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav.js";
 import "./App.css";
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="signup" element={<Signup />} />
             <Route path="login" element={<Login />} />
+            <Route path="create_dog" element={<Create_Dog />} />
           </Routes>
         </div>
       </BrowserRouter>
