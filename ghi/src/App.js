@@ -5,6 +5,7 @@ import Home from "./Home.js";
 import Signup from "./Signup.js";
 import Login from "./Login.js";
 // import ErrorNotification from "./ErrorNotification";
+import Nav from "./Nav.js";
 import "./App.css";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
   return (
     <AuthProvider baseUrl={baseUrl}>
       <BrowserRouter>
-        {/* <Nav/> */}
+        <Nav />
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />

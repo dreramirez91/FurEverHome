@@ -1,20 +1,29 @@
-import React, { useState } from "react";
-import useToken, { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
+import React, { useInsertionEffect, useState } from "react";
+import useToken from "@galvanize-inc/jwtdown-for-react";
+import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 import { useNavigate } from "react-router-dom";
-
+import { useEffect } from "react";
 
 function Signup() {
-  const [username, setEmail] = useState("");
+  const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [terms, setTerms] = useState(false);
   const { register } = useToken();
+  // can you explain what useToken is and how this rips register out of it?
   const { token } = useAuthContext();
   const navigate = useNavigate();
+  const [loginFailed, setLoginFailed] = useState(false);
+  // let loggedIn = true;
+  // if (token) {
+  //   loggedIn = true;
+  // } else {
+  //   loggedIn = false;
+  // }
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleusernameChange = (e) => {
+    setusername(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -33,40 +42,57 @@ function Signup() {
     setTerms(e.target.checked);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const signUpData = {
       username: username,
       password: password,
       full_name: firstName + " " + lastName,
     };
-
-    register(
-      signUpData,
-      "http://localhost:8000/api/accounts/"
-    );
-
+    register(signUpData, "http://localhost:8000/api/accounts/")
+      .then(() => {
+        if (token) {
+          setLoginFailed(false);
+          navigate("/");
+        } else {
+          setLoginFailed(true);
+        }
+      })
+      .catch(console.error);
+    // ^ set state and show error here
   };
+
+  // useEffect idea ----
+
+  useEffect(() => {
+    if (token) {
+      setLoginFailed(false);
+      navigate("/");
+    }
+  }, [token]);
 
   return (
     <>
       <div className="row">
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
-            <h1>Signup Now</h1>
+            <h1>Sign Up Now</h1>
             <form onSubmit={handleSubmit} id="account-signup">
               <div className="form-floating mb-3">
                 <input
-                  onChange={handleEmailChange}
+                  onChange={handleusernameChange}
                   value={username}
-                  placeholder="username"
+                  placeholder="Username"
                   required
                   type="text"
                   id="username"
                   name="username"
                   className="form-control"
                 />
-                <label htmlFor="username">username</label>
+                <label htmlFor="username">Username</label>
+                {loginFailed && (
+                  <span>That username has already been taken.</span>
+                )}
               </div>
               <div className="form-floating mb-3">
                 <input

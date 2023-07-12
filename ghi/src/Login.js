@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
+import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-function LoginForm() {
+export default function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useToken();
+  const { token } = useAuthContext();
+  const navigate = useNavigate();
+  const [loginFailed, setLoginFailed] = useState(false);
 
   const handleUsernameChange = (e) => {
     const value = e.target.value;
@@ -18,16 +24,26 @@ function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    login(username, password);
-    e.target.reset();
-    // const loginResponse = await fetch(loginUrl, fetchConfig);
-    // if (loginResponse.ok) {
-    //   const newLogin = await loginResponse.json();
-
-    //   setUsername("");
-    //   setPassword("");
-    // }
+    console.log(username);
+    login(username, password)
+      .then(() => {
+        if (token) {
+          setLoginFailed(false);
+          navigate("/");
+        } else {
+          setLoginFailed(true);
+        }
+      })
+      .catch(console.error);
   };
+
+  useEffect(() => {
+    if (token) {
+      setLoginFailed(false);
+      navigate("/");
+    }
+  }, [token]);
+
   return (
     <>
       <div className="row">
@@ -47,6 +63,7 @@ function LoginForm() {
                   className="form-control"
                 />
                 <label htmlFor="username">Username</label>
+                {loginFailed && <span>Incorrect login information</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -69,5 +86,3 @@ function LoginForm() {
     </>
   );
 }
-
-export default LoginForm;
