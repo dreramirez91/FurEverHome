@@ -16,14 +16,11 @@ function DogColumn(props) {
               <p className="card-text">Sex: {dog.sex}</p>
               <p className="card-text">Age: {dog.age}</p>
               <p className="card-text">
-                Spayed/neutered:{" "}
-                {String(dog.spayed_neutered)[0].toUpperCase() +
-                  String(dog.spayed_neutered).slice(1)}
+                Spayed/neutered: {dog.spayed_neutered ? "Yes" : "No"}
               </p>
               <p className="card-text">
                 {dog.address_city}, {dog.address_state}
               </p>
-              <p className="card-text">Reason for rehoming: {dog.reason}</p>
               {/* <p className="card-text">Contact information! {dog.reason}</p> */}
             </div>
             <div className="card-footer">
