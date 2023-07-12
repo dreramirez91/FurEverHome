@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import useToken from "@galvanize-inc/jwtdown-for-react";
+import useToken, { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
+import { useNavigate } from "react-router-dom";
+
 
 function Signup() {
   const [username, setEmail] = useState("");
@@ -8,6 +10,8 @@ function Signup() {
   const [lastName, setLastName] = useState("");
   const [terms, setTerms] = useState(false);
   const { register } = useToken();
+  const { token } = useAuthContext();
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -36,17 +40,12 @@ function Signup() {
       password: password,
       full_name: firstName + " " + lastName,
     };
-    const happyMan = register(
+
+    register(
       signUpData,
       "http://localhost:8000/api/accounts/"
     );
-    // if (signupResponse.ok) {
-    //   setEmail("");
-    //   setPassword("");
-    //   setFirstName("");
-    //   setLastName("");
-    //   setTerms(false);
-    // }
+
   };
 
   return (
