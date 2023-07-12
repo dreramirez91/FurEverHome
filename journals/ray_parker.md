@@ -15,3 +15,9 @@ We are taking the day to catch up on explorations since we are at a good stoppin
 
 ## July 10, 2023
 The front-end has a good template for a home, app, nav, signup, and login. Tomorrow we will start front-end authentication. Currently we're ahead of schedule and brainstorming what we need to accomplish next.
+
+## July 11, 2023
+Front-end authentication is finished. We decided to continue using react and not go with redux. Tomorrow we plan on working in teams to develop the list view and create dog view.
+
+## July 12, 2023
+Right now we're dealing with a blocker in logging in and signing up without duplicates. We will spend time researching this tonight and continue to mob code in the front end. Our goal is to start the list dogs dogs and create dog today.
