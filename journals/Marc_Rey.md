@@ -15,3 +15,9 @@ Finishing mob coding for backend specifically backend CRUD, small debugging but 
 
 July 10, 2023, (Day 6) -
 Started coding the frontend, added Login, Home, Signup, and App so far. Going to continue the rest of the day added the baseline/outline of the frontend so that we can work on authentication afterwards. Blockers we have are figuring out the authentication for the frontend, the backend auth works and the information is easily processed and displayed..
+
+July 11, 2023 (Day 6) -
+Adding frontend authenticator with jwtdown react, currently having a blocker regarding that
+
+July 12, 2023 (Day 7) -
+Going to continue on working on the frontend authenticator blocker, then going to continue to make the dog list as well as the nav.js
