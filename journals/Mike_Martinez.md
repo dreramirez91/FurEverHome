@@ -12,3 +12,5 @@ Finished CRUD yesterday. Update needs to be finished, some debugging blockers ar
 Discussing next Steps for Front End - Started Coding Front End - Goals to complete are Home, APP, Nav, SignUp and LogIn pages on react. Only Blockers are Auth for FE
 ## 7/11
 Debugging Auth Front End blockers having issues when logging in. We are coding independently for the first half of the day to see if we can come up with a solution.
+## 7/12
+Mob coding this morning and co programming - Coded out Nav Js for front end. We are still running into issues with error handling with duplicate user names. Will move forward with front end and continue working on FE and solutions for blockers
