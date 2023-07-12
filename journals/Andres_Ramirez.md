@@ -25,7 +25,10 @@ Before the break, our team completed all backend API endpoints for our MVP. Toda
 Day 7 - 7/11
 
 Yesterday, our team worked on the homepage, login, and signup functions. We struggled with various bugs relating to frontend auth. We plan on tackling those today.
+<<<<<<< HEAD
 
 Day 8 - 7/12
 
 Yesterday, our team sorted through a number of bugs in the login and signup functions. Today we will be working through those bugs along with signout, and if there is any time, list dogs. No blockers.
+=======
+>>>>>>> frontend
