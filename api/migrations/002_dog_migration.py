@@ -15,6 +15,7 @@ steps = [
             date_posted DATE NOT NULL,
             address_city VARCHAR(100) NOT NULL,
             address_state VARCHAR(100) NOT NULL,
+            email VARCHAR(100) NOT NULL,
             rehomer_id INT NOT NULL,
             CONSTRAINT fk_rehomer_id
                 FOREIGN KEY(rehomer_id)
