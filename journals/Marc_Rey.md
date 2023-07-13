@@ -21,3 +21,6 @@ Adding frontend authenticator with jwtdown react, currently having a blocker reg
 
 July 12, 2023 (Day 7) -
 Going to continue on working on the frontend authenticator blocker, then going to continue to make the dog list as well as the nav.js
+
+July 13th, 2023 (Day 8) -
+We completed login and signup forms yesterday. We are going to continue working on the frontend for the dog form and list dog page. We will work on the backend table so that email and other contact information is able to be displayed.
