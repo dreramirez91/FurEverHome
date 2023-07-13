@@ -22,7 +22,7 @@ function DogColumn(props) {
               </p>
               <p className="card-text">
                 {dog.city}, {dog.state}
-              </p>            
+              </p>
             </div>
             <div className="card-footer">
               {new Date(dog.date_posted).toLocaleDateString()}
@@ -38,37 +38,30 @@ function DogColumn(props) {
 const DogList = (props) =>  {
   const [dogColumns, setDogColumns] = useState([[], [], []]);
 
-  const fetchData = async () => {
-    const url = 'http://localhost:8000/dogs/';
+  const fetchDogs = async () => {
+    const url = `${process.env.REACT_APP_API_HOST}/dogs/`;
 
     try {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
         console.log(data)
-        // const requests = [];
-        // for (let dog of data.dogs) {
-        //   const detailUrl = `http://localhost:8000/dogs/${dog.id}`;
-        //   requests.push(fetch(detailUrl));
-        // }
-
-        const responses = await Promise.all(requests);
 
         const columns = [[], [], []];
 
-        let i = 0;
-        for (const dogsResponse of responses) {
-          if (dogsResponse.ok) {
-            const details = await dogsResponse.json();
-            columns[i].push(details);
-            i = i + 1;
-            if (i > 2) {
-              i = 0;
-            }
-          } else {
-            console.error(dogsResponse);
-          }
-        }
+        // let i = 0;
+        // for (const dogsResponse of responses) {
+        //   if (dogsResponse.ok) {
+        //     const details = await dogsResponse.json();
+        //     columns[i].push(details);
+        //     i = i + 1;
+        //     if (i > 2) {
+        //       i = 0;
+        //     }
+        //   } else {
+        //     console.error(dogsResponse);
+        //   }
+        // }
 
         setDogColumns(columns);
       }
@@ -78,7 +71,7 @@ const DogList = (props) =>  {
   }
 
   useEffect(() => {
-    fetchData();
+    fetchDogs();
   }, []);
 
   return (
