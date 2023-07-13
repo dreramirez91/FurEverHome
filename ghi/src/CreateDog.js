@@ -66,6 +66,8 @@ function CreateDog() {
     data.address_city = addressCity;
     data.address_state = addressState;
     data.email = email;
+    data.adopted = false;
+    console.log("Data --------->", data);
 
     const createDogUrl = `${process.env.REACT_APP_API_HOST}/dogs/${rehomer_id}`;
     const fetchConfig = {
