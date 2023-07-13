@@ -20,6 +20,13 @@ function Nav() {
         <div className="navbar-collapse">
           <ul className="navbar-nav mb-2 mb-lg-0 nav-fill w-100">
             <div>
+              <NavLink
+                className="btn"
+                style={{ color: "white" }}
+                to="/dogs"
+                >
+                  Available Dogs
+              </NavLink>
               {loggedIn || (
                 <>
                   <NavLink
