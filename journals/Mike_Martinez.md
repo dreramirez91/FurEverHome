@@ -14,3 +14,5 @@ Discussing next Steps for Front End - Started Coding Front End - Goals to comple
 Debugging Auth Front End blockers having issues when logging in. We are coding independently for the first half of the day to see if we can come up with a solution.
 ## 7/12
 Mob coding this morning and co programming - Coded out Nav Js for front end. We are still running into issues with error handling with duplicate user names. Will move forward with front end and continue working on FE and solutions for blockers
+## 7/13
+We have decided to implement an email feature for create dogs. We need to go back to the backend and implement this function. We will mob program the back end together. Next we will continue with the front end features. Delete, Edit and List all and my dogs. 
