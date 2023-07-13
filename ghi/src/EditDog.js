@@ -5,7 +5,6 @@ import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 function EditDog() {
   let { dog_id } = useParams();
   const { token } = useAuthContext();
-  console.log(token);
   const [age, setAge] = useState("");
   const [pictureUrl, setPictureUrl] = useState("");
   const [spayedNeutered, setSpayedNeutered] = useState(false);
@@ -14,7 +13,6 @@ function EditDog() {
   const [addressCity, setAddressCity] = useState("");
   const [addressState, setAddressState] = useState("");
   const [email, setEmail] = useState("");
-
 
   const handleAgeChange = (e) => {
     setAge(e.target.value);
@@ -61,8 +59,8 @@ function EditDog() {
     data.address_city = addressCity;
     data.address_state = addressState;
     data.email = email;
-    console.log(data);
-    const editDogUrl = `${process.env.REACT_APP_API_HOST}/dogs/${dog_id}`;
+    const editDogUrl = `${process.env.REACT_APP_API_HOST}/dog/${dog_id}`;
+    console.log("TOKEN ------>", token);
     const fetchConfig = {
       method: "put",
       body: JSON.stringify(data),
