@@ -50,7 +50,9 @@ async def delete_dog(
 
 
 @router.get("/dog/{rehomer_id}", response_model=List[DogOut])
-async def list_my_dogs(rehomer_id: int, repo: DogQueries = Depends()):
+async def list_my_dogs(rehomer_id: int, repo: DogQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data)
+):
     return repo.list_my_dogs(rehomer_id)
 
 
@@ -61,4 +63,4 @@ async def update_dog(
     repo: DogQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    return repo.update_dog(dog,dog_id)
+    return repo.update_dog(dog, dog_id)
