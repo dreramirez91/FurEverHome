@@ -9,9 +9,10 @@ import CreateDog from "./CreateDog.js";
 import Nav from "./Nav.js";
 import "./App.css";
 import DogList from "./ListDogs.js";
+import EditDog from "./EditDog.js";
 
 function App() {
-  const baseUrl = process.env.REACT_APP_API_HOST;
+  const baseUrl = "http://localhost:8000" || process.env.REACT_APP_API_HOST;
 
   return (
     <AuthProvider baseUrl={baseUrl}>
@@ -22,7 +23,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="signup" element={<Signup />} />
             <Route path="login" element={<Login />} />
-            <Route path="dogs/:rehomer_id" element={<CreateDog />} />
+            <Route path="dogs/:rehomer_id/create" element={<CreateDog />} />
+            <Route path="dogs/:dog_id/edit" element={<EditDog />} />
             <Route path="dogs" element={<DogList />} />
           </Routes>
         </div>
