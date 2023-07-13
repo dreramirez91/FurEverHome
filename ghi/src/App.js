@@ -21,7 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="signup" element={<Signup />} />
             <Route path="login" element={<Login />} />
-            <Route path="create_dog" element={<CreateDog />} />
+            <Route path="dogs/:rehomer_id" element={<CreateDog />} />
           </Routes>
         </div>
       </BrowserRouter>
