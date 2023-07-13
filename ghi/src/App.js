@@ -8,6 +8,7 @@ import CreateDog from "./CreateDog.js";
 // import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav.js";
 import "./App.css";
+import DogList from "./ListDogs.js";
 
 function App() {
   const baseUrl = process.env.REACT_APP_API_HOST;
@@ -22,6 +23,7 @@ function App() {
             <Route path="signup" element={<Signup />} />
             <Route path="login" element={<Login />} />
             <Route path="dogs/:rehomer_id" element={<CreateDog />} />
+            <Route path="dogs" element={<DogList />} />
           </Routes>
         </div>
       </BrowserRouter>
