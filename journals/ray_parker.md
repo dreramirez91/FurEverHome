@@ -21,3 +21,6 @@ Front-end authentication is finished. We decided to continue using react and not
 
 ## July 12, 2023
 Right now we're dealing with a blocker in logging in and signing up without duplicates. We will spend time researching this tonight and continue to mob code in the front end. Our goal is to start the list dogs dogs and create dog today.
+
+## July 13, 2023
+We need to go back to the back-end to add to the dog table. We are going to add email to the dog card so users are able to contact the owner. After we update the table finishing the create dog and list dog page is the next priority.
