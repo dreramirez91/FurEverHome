@@ -29,3 +29,7 @@ Yesterday, our team worked on the homepage, login, and signup functions. We stru
 Day 8 - 7/12
 
 Yesterday, our team sorted through a number of bugs in the login and signup functions. Today we will be working through those bugs along with signout, and if there is any time, list dogs. No blockers.
+
+Day 9 - 7/12
+
+Yesterday, our team completed the login and signup functions and began the create dog form and list dog page. Today we will be working on those pages, along with rearranging our database to include email so that we can display contact information on the frontend. No blockers.
