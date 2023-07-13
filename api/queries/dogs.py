@@ -15,6 +15,7 @@ class DogIn(BaseModel):
     reason: str
     address_city: str
     address_state: str
+    email: str
 
 
 class DogOut(BaseModel):
@@ -31,6 +32,7 @@ class DogOut(BaseModel):
     rehomer_id: int
     address_city: str
     address_state: str
+    email: str
 
 
 class UpdateDogIn(BaseModel):
@@ -41,6 +43,7 @@ class UpdateDogIn(BaseModel):
     reason: str
     address_city: str
     address_state: str
+    email: str
 
 
 class DogQueries:
@@ -52,9 +55,9 @@ class DogQueries:
                 result = db.execute(
                     """
                     INSERT INTO dog
-                        (name, age, picture_url, sex, breed, spayed_neutered, adopted, reason, address_city, address_state, rehomer_id, date_posted)
+                        (name, age, picture_url, sex, breed, spayed_neutered, adopted, reason, address_city, address_state, rehomer_id, date_posted, email)
                     VALUES
-                        (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                        (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                     RETURNING id;
                     """,
                     [
@@ -70,6 +73,7 @@ class DogQueries:
                         dog.address_state,
                         rehomer_id,
                         self.datenow,
+                        dog.email,
                     ],
                 )
                 id = result.fetchone()[0]
@@ -80,7 +84,7 @@ class DogQueries:
             with conn.cursor() as db:
                 result = db.execute(
                     """
-                    SELECT id, name , age, picture_url, sex, breed, spayed_neutered, adopted, date_posted, rehomer_id, address_city, address_state, reason
+                    SELECT id, name , age, picture_url, sex, breed, spayed_neutered, adopted, date_posted, rehomer_id, address_city, address_state, reason, email
                     FROM dog
                     ORDER BY date_posted;
                     """
@@ -101,6 +105,7 @@ class DogQueries:
                         address_city=record[10],
                         address_state=record[11],
                         reason=record[12],
+                        email=record[13],
                     )
                     result.append(dog)
                 output = {}
@@ -112,7 +117,7 @@ class DogQueries:
             with conn.cursor() as db:
                 result = db.execute(
                     """
-                    SELECT id, name , age, picture_url, sex, breed, spayed_neutered, adopted, date_posted, rehomer_id, address_city, address_state, reason
+                    SELECT id, name , age, picture_url, sex, breed, spayed_neutered, adopted, date_posted, rehomer_id, address_city, address_state, reason, email
                     FROM dog
                     WHERE rehomer_id = %s
                     ORDER BY date_posted;
@@ -135,6 +140,7 @@ class DogQueries:
                         address_city=record[10],
                         address_state=record[11],
                         reason=record[12],
+                        email=record[13],
                     )
                     result.append(dog)
                 return result
@@ -164,7 +170,8 @@ class DogQueries:
                     adopted = %s,
                     reason = %s,
                     address_city = %s,
-                    address_state = %s
+                    address_state = %s,
+                    email = %s
                     WHERE id = %s
                     RETURNING rehomer_id,name,breed,sex;
                     """,
@@ -176,7 +183,9 @@ class DogQueries:
                         dog.reason,
                         dog.address_city,
                         dog.address_state,
+                        dog.email,
                         dog_id,
+
                     ],
                 )
                 id = dog_id
