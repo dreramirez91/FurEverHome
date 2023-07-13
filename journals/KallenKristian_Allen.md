@@ -1,5 +1,8 @@
+07/13/23
+Today, our team will return to mob programming for the backend so that we can rearrange our database. Afterwards, we will continue working on our create dog form and list dog page as pairs. No blockers.
+
 07/12/23
-Auth is still a blocker and the focus for today. We are planning to work on some other features if we are unable to debug auth successfully, as well as study/research more on catch in our own time for our error handling. 
+Today we successfully debugged front end auth and broke into pair programming for the create dog form and list dog page. Ray, Dre, and myself worked on the list dog page and managed to get our cards showing up successfully. We realized we will need to go back to the backend to add an email field.
 
 07/11/23
 Starting with auth as a blocker. Debugging auth will be our focus today before moving onto any other parts.
