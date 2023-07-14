@@ -24,3 +24,6 @@ Right now we're dealing with a blocker in logging in and signing up without dupl
 
 ## July 13, 2023
 We need to go back to the back-end to add to the dog table. We are going to add email to the dog card so users are able to contact the owner. After we update the table finishing the create dog and list dog page is the next priority.
+
+## July 14, 2023
+We're almost done coding out the front-end. What's left is the my dogs page and the delete feature. The delete and edit functionality will be added as buttons to the my dogs page. That is our goal for today, if need be we'll finish up monday before starting any customization.
