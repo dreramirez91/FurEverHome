@@ -2,6 +2,27 @@ import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 function DogColumn(props) {
+  console.log("PROPS ----->", props);
+  async function deleteDog(dogId) {
+    const url = `${process.env.REACT_APP_API_HOST}/dog/${dogId}`;
+    const fetchConfig = {
+      method: "delete",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const response = await fetch(url, fetchConfig);
+      if (response.ok) {
+        props.fetchDogs();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   return (
     <div className="col">
       {props.list.map((dog) => {
@@ -25,6 +46,13 @@ function DogColumn(props) {
               {" "}
               Date Posted: {new Date(dog.date_posted).toLocaleDateString()}
             </div>
+            <button
+              type="button"
+              onClick={() => deleteDog(dog.id)}
+              className="btn btn-danger"
+            >
+              Delete
+            </button>
           </div>
         );
       })}
@@ -48,7 +76,6 @@ const MyDogs = (props) => {
 
     try {
       const response = await fetch(url, fetchConfig);
-      console.log("HEADERS ----->", fetchConfig.headers);
       if (response.ok) {
         const data = await response.json();
         console.log(data);
@@ -94,7 +121,9 @@ const MyDogs = (props) => {
       <div className="container">
         <div className="row">
           {dogColumns.map((dogList, index) => {
-            return <DogColumn key={index} list={dogList} />;
+            return (
+              <DogColumn key={index} list={dogList} fetchDogs={fetchDogs} />
+            );
           })}
         </div>
       </div>
