@@ -1,6 +1,5 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 
 function DogColumn(props) {
   return (
@@ -35,18 +34,15 @@ function DogColumn(props) {
 
 const MyDogs = (props) => {
   const [dogColumns, setDogColumns] = useState([[], [], []]);
-  const { token } = useAuthContext();
   let { rehomer_id } = useParams();
-  console.log(token); // relies on this console.log to function!
 
   const fetchDogs = async () => {
     const url = `${process.env.REACT_APP_API_HOST}/dog/${rehomer_id}`;
-    console.log("TOKEN WITHIN FETCH FUNCTION ------>", token);
     const fetchConfig = {
       method: "get",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
     };
 

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 
 function CreateDog() {
   let { rehomer_id } = useParams();
-  const { token } = useAuthContext();
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [pictureUrl, setPictureUrl] = useState("");
@@ -67,15 +65,14 @@ function CreateDog() {
     data.address_state = addressState;
     data.email = email;
     data.adopted = false;
-    console.log("Data --------->", data);
 
     const createDogUrl = `${process.env.REACT_APP_API_HOST}/dogs/${rehomer_id}`;
     const fetchConfig = {
       method: "post",
       body: JSON.stringify(data),
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
     };
 

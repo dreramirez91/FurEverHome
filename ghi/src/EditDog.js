@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 
 function EditDog() {
   let { dog_id } = useParams();
-  const { token } = useAuthContext();
   const [age, setAge] = useState("");
   const [pictureUrl, setPictureUrl] = useState("");
   const [spayedNeutered, setSpayedNeutered] = useState(false);
@@ -60,19 +58,19 @@ function EditDog() {
     data.address_state = addressState;
     data.email = email;
     const editDogUrl = `${process.env.REACT_APP_API_HOST}/dog/${dog_id}`;
-    console.log("TOKEN ------>", token);
     const fetchConfig = {
       method: "put",
       body: JSON.stringify(data),
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
     };
 
     const editDogResponse = await fetch(editDogUrl, fetchConfig);
     if (editDogResponse.ok) {
       const editDog = await editDogResponse.json();
+      console.log(editDog);
 
       setAge("");
       setPictureUrl("");
