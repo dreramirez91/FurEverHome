@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+// khkjhjkhx
 
 function DogColumn(props) {
-  console.log("PROPS ----->", props);
   async function deleteDog(dogId) {
     const url = `${process.env.REACT_APP_API_HOST}/dog/${dogId}`;
     const fetchConfig = {
