@@ -1,3 +1,7 @@
+Day 10 - 7/14
+
+Yesterday, our team completed the create and edit pages, as well as the list dogs page. Today we will wrap up the MVP frontend by including the MyDog page along with its associated edit and delete buttons. No blockers.
+
 Day 9 - 7/13
 
 Yesterday, our team completed the login and signup functions and began the create dog form and list dog page. Today we will be working on those pages, along with rearranging our database to include email so that we can display contact information on the frontend. No blockers.
