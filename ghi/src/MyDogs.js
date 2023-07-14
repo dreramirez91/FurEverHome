@@ -2,6 +2,26 @@ import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 function DogColumn(props) {
+  async function deleteDog(dogId) {
+    const url = `${process.env.REACT_APP_API_HOST}/dog/${dogId}`;
+    const fetchConfig = {
+      method: "delete",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const response = await fetch(url, fetchConfig);
+      if (response.ok) {
+        MyDogs.fetchDogs();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   return (
     <div className="col">
       {props.list.map((dog) => {
@@ -25,6 +45,7 @@ function DogColumn(props) {
               {" "}
               Date Posted: {new Date(dog.date_posted).toLocaleDateString()}
             </div>
+            <button onClick={() => deleteDog(dog.id)}>hello</button>
           </div>
         );
       })}
