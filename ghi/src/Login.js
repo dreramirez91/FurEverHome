@@ -71,7 +71,7 @@ export default function LoginForm() {
                   value={password}
                   placeholder="password"
                   required
-                  type="text"
+                  type="password"
                   id="password"
                   name="password"
                   className="form-control"
