@@ -37,10 +37,11 @@ const MyDogs = (props) => {
   const [dogColumns, setDogColumns] = useState([[], [], []]);
   const { token } = useAuthContext();
   let { rehomer_id } = useParams();
-  console.log(token);
+  console.log(token); // relies on this console.log to function!
 
   const fetchDogs = async () => {
     const url = `${process.env.REACT_APP_API_HOST}/dog/${rehomer_id}`;
+    console.log("TOKEN WITHIN FETCH FUNCTION ------>", token);
     const fetchConfig = {
       method: "get",
       headers: {
@@ -51,14 +52,15 @@ const MyDogs = (props) => {
 
     try {
       const response = await fetch(url, fetchConfig);
+      console.log("HEADERS ----->", fetchConfig.headers);
       if (response.ok) {
         const data = await response.json();
-        //console.log(data)
+        console.log(data);
 
         const columns = [[], [], []];
 
         let i = 0;
-        for (const dogsResponse of data.dogs) {
+        for (const dogsResponse of data) {
           columns[i].push(dogsResponse);
           i = i + 1;
           if (i > 2) {
