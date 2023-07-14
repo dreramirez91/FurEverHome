@@ -2,21 +2,24 @@ import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 function DogColumn(props) {
+  console.log("PROPS ----->", props);
+  async function deleteDog(dogId) {
+    const url = `${process.env.REACT_APP_API_HOST}/dog/${dogId}`;
+    const fetchConfig = {
+      method: "delete",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-  async function deleteDog(e, dog_id) {
-    e.preventDefault();
-
-    const response = await fetch(
-      `${process.env.REACT_APP_API_HOST}/dog/${dog_id}`,
-      {
-        method: "DELETE",
+    try {
+      const response = await fetch(url, fetchConfig);
+      if (response.ok) {
+        props.fetchDogs();
       }
-    );
-
-    if (response.ok) {
-      useEffect(() => {
-        fetchDogs();
-      }, []);
+    } catch (e) {
+      console.error(e);
     }
   }
 
@@ -45,7 +48,7 @@ function DogColumn(props) {
             </div>
             <button
               type="button"
-              onClick={(e) => deleteDog(e, dog.id)}
+              onClick={() => deleteDog(dog.id)}
               className="btn btn-danger"
             >
               Delete
@@ -73,7 +76,6 @@ const MyDogs = (props) => {
 
     try {
       const response = await fetch(url, fetchConfig);
-      console.log("HEADERS ----->", fetchConfig.headers);
       if (response.ok) {
         const data = await response.json();
         console.log(data);
@@ -102,7 +104,6 @@ const MyDogs = (props) => {
     fetchDogs();
   }, []);
 
-
   return (
     <>
       <div className="px-4 py-5 my-5 mt-0 text-center bg-info">
@@ -120,7 +121,9 @@ const MyDogs = (props) => {
       <div className="container">
         <div className="row">
           {dogColumns.map((dogList, index) => {
-            return <DogColumn key={index} list={dogList} />;
+            return (
+              <DogColumn key={index} list={dogList} fetchDogs={fetchDogs} />
+            );
           })}
         </div>
       </div>
