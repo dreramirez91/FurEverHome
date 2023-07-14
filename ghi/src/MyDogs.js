@@ -1,6 +1,5 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-// khkjhjkhx
 
 function DogColumn(props) {
   async function deleteDog(dogId) {
