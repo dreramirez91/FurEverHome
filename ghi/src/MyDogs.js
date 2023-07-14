@@ -1,7 +1,9 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { redirect } from "react-router-dom";
 
 function DogColumn(props) {
+  const editPage = () => redirect(url);
   async function deleteDog(dogId) {
     const url = `${process.env.REACT_APP_API_HOST}/dog/${dogId}`;
     const fetchConfig = {
@@ -36,6 +38,7 @@ function DogColumn(props) {
               <p className="card-text">
                 Spayed/neutered: {dog.spayed_neutered ? "Yes" : "No"}
               </p>
+              <p className="card-text">Adopted: {dog.adopted ? "Yes" : "No"}</p>
               <p className="card-text">
                 {dog.address_city}, {dog.address_state}
               </p>
@@ -45,6 +48,17 @@ function DogColumn(props) {
               {" "}
               Date Posted: {new Date(dog.date_posted).toLocaleDateString()}
             </div>
+            <button
+              type="button"
+              onClick={() => {
+                editPage(
+                  `${process.env.REACT_APP_API_HOST}/dogs/${dog.id}/edit`
+                );
+              }}
+              className="btn btn-info"
+            >
+              Edit
+            </button>
             <button
               type="button"
               onClick={() => deleteDog(dog.id)}
