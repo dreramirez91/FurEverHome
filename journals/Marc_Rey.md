@@ -24,3 +24,6 @@ Going to continue on working on the frontend authenticator blocker, then going t
 
 July 13th, 2023 (Day 8) -
 We completed login and signup forms yesterday. We are going to continue working on the frontend for the dog form and list dog page. We will work on the backend table so that email and other contact information is able to be displayed.
+
+July 17th, 2023 (Day 9) -
+We debugged some issues with flake8 and are going to focus mainly today on creating tests.
