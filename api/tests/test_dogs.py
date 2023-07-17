@@ -40,7 +40,7 @@ def test_create_dog():
         "address_state": "string",
         "email": "string",
     }
-    res = client.post("/dogs/1", json=dog_in)
+    res = client.post("/dogs/", json=dog_in)
     data = res.json()
     print(res, res.status_code)
     assert res.status_code == 200
