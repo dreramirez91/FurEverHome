@@ -27,3 +27,6 @@ We need to go back to the back-end to add to the dog table. We are going to add 
 
 ## July 14, 2023
 We're almost done coding out the front-end. What's left is the my dogs page and the delete feature. The delete and edit functionality will be added as buttons to the my dogs page. That is our goal for today, if need be we'll finish up monday before starting any customization.
+
+## July 17, 2023
+After today's lecture we went through the flake8 errors and resolved those. Our focus now is writing tests, we will each be writing a test. I am responsible for writing the my_dogs test.
