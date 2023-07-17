@@ -2,7 +2,7 @@ from fastapi.testclient import TestClient
 from main import app
 from queries.dogs import DogQueries, DogIn
 from authenticator import authenticator
-from datetime import datetime
+from datetime import datetime, date
 
 client = TestClient(app)
 
