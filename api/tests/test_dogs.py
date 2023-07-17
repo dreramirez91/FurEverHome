@@ -8,7 +8,7 @@ client = TestClient(app)
 
 
 def fake_get_current_account_data():
-    return {"id": "1337", "username": "fakeuser", "full_name": "fake guy"}
+    return {"id": "1", "username": "fakeuser", "full_name": "fake guy"}
 
 
 class FakeDogQueries:
