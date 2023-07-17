@@ -1,3 +1,6 @@
+07/17/23
+During lecture this morning, we fixed our flake8 errors and frontend errors. Today, we will be focusing on each writing our unit tests. No blockers.
+
 07/14/23
 Yesterday, we finished our list dog page and create dog form. Today, we will be focusing on our mydogs page and depending on time, maybe begin testing.
 
