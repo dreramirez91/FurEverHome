@@ -38,5 +38,3 @@ Last night I spent about 4 hours studying authentication in SQL and encountered 
 Day 1 - 6/26
 
 # We worked on setting up Trello to be used in lieu of Gitlab issue board. Tonight, we will finish the authentication video. No blockers.
-
-> > > > > > > frontend

@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from queries.pool import pool
 from datetime import date
-from typing import List, Dict, Union
+from typing import List, Dict
 
 
 class DogIn(BaseModel):

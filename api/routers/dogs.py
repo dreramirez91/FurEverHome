@@ -1,17 +1,12 @@
 # router.py
 from fastapi import (
     Depends,
-    HTTPException,
-    status,
-    Response,
     APIRouter,
-    Request,
 )
-from jwtdown_fastapi.authentication import Token
 from authenticator import authenticator
 
 from typing import List, Dict
-from pydantic import BaseModel
+
 
 from queries.dogs import DogIn, DogOut, DogQueries, UpdateDogIn
 
