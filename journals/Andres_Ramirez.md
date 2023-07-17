@@ -1,3 +1,7 @@
+Day 10 - 7/15
+
+Last Friday, our team completed the minimum viable product for FurEverHome as a full-stack application. Today we will split up to try and create functioning unit tests. No blockers.
+
 Day 10 - 7/14
 
 Yesterday, our team completed the create and edit pages, as well as the list dogs page. Today we will wrap up the MVP frontend by including the MyDog page along with its associated edit and delete buttons. No blockers.
