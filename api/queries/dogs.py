@@ -55,7 +55,21 @@ class DogQueries:
                 result = db.execute(
                     """
                     INSERT INTO dog
-                        (name, age, picture_url, sex, breed, spayed_neutered, adopted, reason, address_city, address_state, rehomer_id, date_posted, email)
+                        (
+                        name,
+                        age,
+                        picture_url,
+                        sex,
+                        breed,
+                        spayed_neutered,
+                        adopted,
+                        reason,
+                        address_city,
+                        address_state,
+                        rehomer_id,
+                        date_posted,
+                        email
+                        )
                     VALUES
                         (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                     RETURNING id;
@@ -84,7 +98,21 @@ class DogQueries:
             with conn.cursor() as db:
                 result = db.execute(
                     """
-                    SELECT id, name , age, picture_url, sex, breed, spayed_neutered, adopted, date_posted, rehomer_id, address_city, address_state, reason, email
+                    SELECT
+                        id,
+                        name,
+                        age,
+                        picture_url,
+                        sex,
+                        breed,
+                        spayed_neutered,
+                        adopted,
+                        date_posted,
+                        rehomer_id,
+                        address_city,
+                        address_state,
+                        reason,
+                        email
                     FROM dog
                     ORDER BY date_posted;
                     """
@@ -117,7 +145,21 @@ class DogQueries:
             with conn.cursor() as db:
                 result = db.execute(
                     """
-                    SELECT id, name , age, picture_url, sex, breed, spayed_neutered, adopted, date_posted, rehomer_id, address_city, address_state, reason, email
+                    SELECT
+                    id,
+                    name,
+                    age,
+                    picture_url,
+                    sex,
+                    breed,
+                    spayed_neutered,
+                    adopted,
+                    date_posted,
+                    rehomer_id,
+                    address_city,
+                    address_state,
+                    reason,
+                    email
                     FROM dog
                     WHERE rehomer_id = %s
                     ORDER BY date_posted;
