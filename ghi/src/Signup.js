@@ -1,4 +1,4 @@
-import React, { useInsertionEffect, useState } from "react";
+import React, { useState } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 import { useNavigate } from "react-router-dom";
@@ -69,7 +69,7 @@ function Signup() {
       setLoginFailed(false);
       navigate("/");
     }
-  }, [token]);
+  }, [token, navigate]);
 
   return (
     <>

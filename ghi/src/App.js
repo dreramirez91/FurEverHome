@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
-import { useEffect, useState } from "react";
 import Home from "./Home.js";
 import Signup from "./Signup.js";
 import Login from "./Login.js";
