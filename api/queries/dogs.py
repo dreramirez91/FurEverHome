@@ -185,7 +185,6 @@ class DogQueries:
                         dog.address_state,
                         dog.email,
                         dog_id,
-
                     ],
                 )
                 id = dog_id

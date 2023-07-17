@@ -8,12 +8,12 @@ from queries.accounts import AccountQueries, AccountOut, AccountOutWithPassword
 class FurEverHomeAuthenticator(Authenticator):
     async def get_account_data(
         self,
-        email: str,
+        username: str,
         accounts: AccountQueries,
     ):
         # Use your repo to get the account based on the
-        # username (which could be an email)
-        return accounts.get(email)
+        # username (which could be an username)
+        return accounts.get(username)
 
     def get_account_getter(
         self,
@@ -30,7 +30,7 @@ class FurEverHomeAuthenticator(Authenticator):
     def get_account_data_for_cookie(self, account: AccountOut):
         # Return the username and the data for the cookie.
         # You must return TWO values from this method.
-        return account.email, AccountOut(**account.dict())
+        return account.username, AccountOut(**account.dict())
 
 
 authenticator = FurEverHomeAuthenticator(os.environ["SIGNING_KEY"])

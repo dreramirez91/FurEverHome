@@ -1,13 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Berkshire+Swash&family=Handlee&family=Loved+by+the+King&family=Patrick+Hand&family=Solitreo&family=The+Girl+Next+Door&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+* {
+  font-family: "Handlee", cursive;
+  color: black;
+}
+
+.div-video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  bottom: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/*
+#E7717D (PINK)
+#C2CAD0 (BLUEISH SLATE GRAY)
+#C2B9B0 (TAUPE)
+#7E685A (BROWN)
+#AFD275 (GREEN)
+*/

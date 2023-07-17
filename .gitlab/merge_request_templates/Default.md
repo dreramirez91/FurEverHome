@@ -33,13 +33,13 @@ For these backend changes, please follow the below steps to ensure my code works
 ```
 curl -X POST localhost:8000/api/users \
 -H "Content-Type: application/json" \
--d '{ "firstName": "test", "lastName": "1", "password": "test", "email": "test1@test.com" }'
+-d '{ "firstName": "test", "lastName": "1", "password": "test", "username": "test1@test.com" }'
 ```
 
 2. expect successful response (without password) like below:
 
 ```
-{ "firstName": "test", "lastName": "1", "email": "test1@test.com" }
+{ "firstName": "test", "lastName": "1", "username": "test1@test.com" }
 ```
 
 ## Resources
