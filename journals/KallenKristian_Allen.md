@@ -1,3 +1,6 @@
+07/14/23
+Yesterday, we finished our list dog page and create dog form. Today, we will be focusing on our mydogs page and depending on time, maybe begin testing.
+
 07/13/23
 Today, our team will return to mob programming for the backend so that we can rearrange our database. Afterwards, we will continue working on our create dog form and list dog page as pairs. No blockers.
 
