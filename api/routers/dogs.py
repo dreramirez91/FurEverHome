@@ -18,7 +18,7 @@ async def create_dog(
     rehomer_id: int,
     dog: DogIn,
     repo: DogQueries = Depends(),
-    # account_data: dict = Depends(authenticator.get_current_account_data),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     return repo.create(dog, rehomer_id)
 
