@@ -199,7 +199,7 @@ class DogQueries:
                 )
                 return True
 
-    def update_dog(self, dog: UpdateDogIn, dog_id: int):
+    def update_dog(self, dog: UpdateDogIn, dog_id: int, rehomer_id: int):
         with pool.connection() as conn:
             with conn.cursor() as db:
                 print(db.description)
@@ -214,7 +214,7 @@ class DogQueries:
                     address_city = %s,
                     address_state = %s,
                     email = %s
-                    WHERE id = %s
+                    WHERE id = %s AND rehomer_id = %s
                     RETURNING rehomer_id,name,breed,sex;
                     """,
                     [
@@ -227,6 +227,7 @@ class DogQueries:
                         dog.address_state,
                         dog.email,
                         dog_id,
+                        rehomer_id
                     ],
                 )
                 id = dog_id
