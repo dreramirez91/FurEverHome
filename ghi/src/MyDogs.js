@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function DogColumn(props) {
   async function deleteDog(dogId) {
@@ -65,10 +65,9 @@ function DogColumn(props) {
 
 const MyDogs = (props) => {
   const [dogColumns, setDogColumns] = useState([[], [], []]);
-  let { rehomer_id } = useParams();
 
   const fetchDogs = async () => {
-    const url = `${process.env.REACT_APP_API_HOST}/dog/${rehomer_id}`;
+    const url = `${process.env.REACT_APP_API_HOST}/dog/`;
     const fetchConfig = {
       method: "get",
       credentials: "include",
