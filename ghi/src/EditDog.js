@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 function EditDog() {
   let { state } = useLocation();
   let { dog_id } = useParams();
+  let navigate = useNavigate();
   const [age, setAge] = useState(state.age);
   const [pictureUrl, setPictureUrl] = useState(state.picture_url);
   const [spayedNeutered, setSpayedNeutered] = useState(state.spayed_neutered);
@@ -12,6 +13,7 @@ function EditDog() {
   const [addressCity, setAddressCity] = useState(state.address_city);
   const [addressState, setAddressState] = useState(state.address_state);
   const [email, setEmail] = useState(state.email);
+  const rehomerId = state.rehomer_id;
 
   const handleAgeChange = (e) => {
     setAge(e.target.value);
@@ -71,6 +73,7 @@ function EditDog() {
     const editDogResponse = await fetch(editDogUrl, fetchConfig);
     if (editDogResponse.ok) {
       const editDog = await editDogResponse.json();
+      navigate(`/dogs/${rehomerId}/mydogs`, {replace: false})
       console.log(editDog);
 
       setAge("");
