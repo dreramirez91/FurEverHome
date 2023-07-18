@@ -42,24 +42,18 @@ function Signup() {
     setTerms(e.target.checked);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const signUpData = {
       username: username,
       password: password,
       full_name: firstName + " " + lastName,
     };
-    register(signUpData, "http://localhost:8000/api/accounts/")
-      .then(() => {
-        if (token) {
-          setLoginFailed(false);
-          navigate("/");
-        } else {
-          setLoginFailed(true);
-        }
-      })
-      .catch(console.error);
-    // ^ set state and show error here
+    const response = await register(
+      signUpData,
+      "http://localhost:8000/api/accounts/"
+    );
+    console.log(token);
   };
 
   // useEffect idea ----
@@ -68,6 +62,8 @@ function Signup() {
     if (token) {
       setLoginFailed(false);
       navigate("/");
+    } else {
+      setLoginFailed(true);
     }
   }, [token, navigate]);
 
