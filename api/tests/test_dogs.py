@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 from main import app
-from queries.dogs import DogQueries, DogIn
+from queries.dogs import DogQueries, DogIn, UpdateDogIn
 from authenticator import authenticator
 from datetime import datetime, date
 from typing import Dict
@@ -46,7 +46,26 @@ class FakeDogQueries:
 
     def delete_dog(self, dog_id: int, rehomer_id: int):
         return True
-    
+
+    def update_dog(self, dog: UpdateDogIn, dog_id: int, rehomer_id: int):
+        result = {
+            "id": "1",
+            "name": "Apple",
+            "age": 0,
+            "picture_url": "string",
+            "sex": "Male",
+            "breed": "Dog",
+            "spayed_neutered": True,
+            "adopted": True,
+            "reason": "string",
+            "date_posted": "2023-07-18",
+            "rehomer_id": rehomer_id,
+            "address_city": "string",
+            "address_state": "string",
+            "email": "string"
+        }
+        result.update(dog)
+        return result
 
     def list_my_dogs(self, rehomer_id: int):
         return [
@@ -156,7 +175,7 @@ def test_list_my_dogs():
     app.dependency_overrides[
         authenticator.get_current_account_data
     ] = fake_get_current_account_data
-    
+
     res = client.get("/dog/")
     data = res.json()
     print(res, res.status_code, data)
@@ -180,3 +199,44 @@ def test_list_my_dogs():
                 "email": "jeremyh@example.com"
             }
         ]
+
+
+def test_update_dog():
+    app.dependency_overrides[DogQueries] = FakeDogQueries
+    app.dependency_overrides[authenticator.get_current_account_data
+                             ] = fake_get_current_account_data
+    json = {
+        "age": 22,
+        "picture_url": "string",
+        "spayed_neutered": True,
+        "adopted": True,
+        "reason": "string",
+        "address_city": "string",
+        "address_state": "string",
+        "email": "string"
+    }
+    expected = {
+        "id": "1",
+        "name": "Apple",
+        "age": 22,
+        "picture_url": "string",
+        "sex": "Male",
+        "breed": "Dog",
+        "spayed_neutered": True,
+        "adopted": True,
+        "reason": "string",
+        "date_posted": "2023-07-18",
+        "rehomer_id": 1,
+        "address_city": "string",
+        "address_state": "string",
+        "email": "string"
+    }
+
+    res = client.put(
+        "/dog/1",
+        json=json
+    )
+    data = res.json()
+
+    assert res.status_code == 200
+    assert data == expected
