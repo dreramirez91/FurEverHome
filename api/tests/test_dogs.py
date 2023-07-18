@@ -15,7 +15,7 @@ def fake_get_current_account_data():
 class FakeDogQueries:
     def create(self, dog_in: DogIn, rehomer_id: int):
         dog = dog_in.dict()
-        dog["id"] = "fake_id_from_db"
+        dog["id"] = 1
         dog["rehomer_id"] = rehomer_id
         datetime_str = "09/19/22"
         datetime_object = datetime.strptime(datetime_str, "%m/%d/%y")
@@ -26,7 +26,7 @@ class FakeDogQueries:
         return {
             "dogs": [
                 {
-                    "id": "3",
+                    "id": 3,
                     "name": "Mongo",
                     "age": 1,
                     "picture_url": "https://pittiemerescue.org/uploads/3/4/5/0/34503852/img-9276_orig.jpeg",
@@ -49,7 +49,7 @@ class FakeDogQueries:
 
     def update_dog(self, dog: UpdateDogIn, dog_id: int, rehomer_id: int):
         result = {
-            "id": "1",
+            "id": 1,
             "name": "Apple",
             "age": 0,
             "picture_url": "string",
@@ -62,7 +62,7 @@ class FakeDogQueries:
             "rehomer_id": rehomer_id,
             "address_city": "string",
             "address_state": "string",
-            "email": "string"
+            "email": "string",
         }
         result.update(dog)
         return result
@@ -70,7 +70,7 @@ class FakeDogQueries:
     def list_my_dogs(self, rehomer_id: int):
         return [
             {
-                "id": "3",
+                "id": 3,
                 "name": "Enrique",
                 "age": 2,
                 "picture_url": "https://media.zenfs.com/en/pethelpful_915/d99bc960478076f15db41f586d52a2b9",
@@ -83,7 +83,7 @@ class FakeDogQueries:
                 "rehomer_id": rehomer_id,
                 "address_city": "Sparta",
                 "address_state": "TN",
-                "email": "jeremyh@example.com"
+                "email": "jeremyh@example.com",
             }
         ]
 
@@ -111,7 +111,7 @@ def test_create_dog():
     print(res, res.status_code)
     assert res.status_code == 200
     assert data == {
-        "id": "fake_id_from_db",
+        "id": 1,
         "name": "string",
         "age": 0,
         "picture_url": "string",
@@ -136,7 +136,7 @@ def test_list_all_dogs():
     assert data == {
         "dogs": [
             {
-                "id": "3",
+                "id": 3,
                 "name": "Mongo",
                 "age": 1,
                 "picture_url": "https://pittiemerescue.org/uploads/3/4/5/0/34503852/img-9276_orig.jpeg",
@@ -182,29 +182,30 @@ def test_list_my_dogs():
 
     assert res.status_code == 200
     assert data == [
-            {
-                "id": "3",
-                "name": "Enrique",
-                "age": 2,
-                "picture_url": "https://media.zenfs.com/en/pethelpful_915/d99bc960478076f15db41f586d52a2b9",
-                "sex": "Male",
-                "breed": "Mini Australian Shephard",
-                "spayed_neutered": False,
-                "adopted": False,
-                "reason": "Moving out of state",
-                "date_posted": "2023-07-13",
-                "rehomer_id": 1,
-                "address_city": "Sparta",
-                "address_state": "TN",
-                "email": "jeremyh@example.com"
-            }
-        ]
+        {
+            "id": 3,
+            "name": "Enrique",
+            "age": 2,
+            "picture_url": "https://media.zenfs.com/en/pethelpful_915/d99bc960478076f15db41f586d52a2b9",
+            "sex": "Male",
+            "breed": "Mini Australian Shephard",
+            "spayed_neutered": False,
+            "adopted": False,
+            "reason": "Moving out of state",
+            "date_posted": "2023-07-13",
+            "rehomer_id": 1,
+            "address_city": "Sparta",
+            "address_state": "TN",
+            "email": "jeremyh@example.com",
+        }
+    ]
 
 
 def test_update_dog():
     app.dependency_overrides[DogQueries] = FakeDogQueries
-    app.dependency_overrides[authenticator.get_current_account_data
-                             ] = fake_get_current_account_data
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_account_data
     json = {
         "age": 22,
         "picture_url": "string",
@@ -213,10 +214,10 @@ def test_update_dog():
         "reason": "string",
         "address_city": "string",
         "address_state": "string",
-        "email": "string"
+        "email": "string",
     }
     expected = {
-        "id": "1",
+        "id": 1,
         "name": "Apple",
         "age": 22,
         "picture_url": "string",
@@ -229,13 +230,10 @@ def test_update_dog():
         "rehomer_id": 1,
         "address_city": "string",
         "address_state": "string",
-        "email": "string"
+        "email": "string",
     }
 
-    res = client.put(
-        "/dog/1",
-        json=json
-    )
+    res = client.put("/dog/1", json=json)
     data = res.json()
 
     assert res.status_code == 200

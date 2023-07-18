@@ -19,7 +19,7 @@ class DogIn(BaseModel):
 
 
 class DogOut(BaseModel):
-    id: str
+    id: int
     name: str
     age: int
     picture_url: str
@@ -227,7 +227,7 @@ class DogQueries:
                         dog.address_state,
                         dog.email,
                         dog_id,
-                        rehomer_id
+                        rehomer_id,
                     ],
                 )
                 id = dog_id
