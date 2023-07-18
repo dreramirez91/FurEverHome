@@ -1,3 +1,7 @@
+Day 11 - 7/16
+
+Yesterday, our team split up and each member focused on studying how to implement a unit test for a given route. Today we will make sure that all of our tests work, integrate them into a single file, and then work on various code clean up. No blockers.
+
 Day 10 - 7/15
 
 Last Friday, our team completed the minimum viable product for FurEverHome as a full-stack application. Today we will split up to try and create functioning unit tests. No blockers.
