@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 function EditDog() {
+  let { state } = useLocation();
   let { dog_id } = useParams();
-  const [age, setAge] = useState("");
-  const [pictureUrl, setPictureUrl] = useState("");
-  const [spayedNeutered, setSpayedNeutered] = useState(false);
-  const [adopted, setAdopted] = useState(false);
-  const [reason, setReason] = useState("");
-  const [addressCity, setAddressCity] = useState("");
-  const [addressState, setAddressState] = useState("");
-  const [email, setEmail] = useState("");
+  const [age, setAge] = useState(state.age);
+  const [pictureUrl, setPictureUrl] = useState(state.picture_url);
+  const [spayedNeutered, setSpayedNeutered] = useState(state.spayed_neutered);
+  const [adopted, setAdopted] = useState(state.adopted);
+  const [reason, setReason] = useState(state.reason);
+  const [addressCity, setAddressCity] = useState(state.address_city);
+  const [addressState, setAddressState] = useState(state.address_state);
+  const [email, setEmail] = useState(state.email);
 
   const handleAgeChange = (e) => {
     setAge(e.target.value);
