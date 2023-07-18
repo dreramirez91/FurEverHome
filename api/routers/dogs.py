@@ -13,14 +13,14 @@ from queries.dogs import DogIn, DogOut, DogQueries, UpdateDogIn
 router = APIRouter()
 
 
-@router.post("/dogs/{rehomer_id}", response_model=DogOut)
+@router.post("/dogs/", response_model=DogOut)
 async def create_dog(
-    rehomer_id: int,
     dog: DogIn,
     repo: DogQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    return repo.create(dog, rehomer_id)
+    print("ACCOUNT DATA ----->", account_data)
+    return repo.create(dog, rehomer_id=account_data["id"])
 
 
 @router.get("/dogs", response_model=Dict)

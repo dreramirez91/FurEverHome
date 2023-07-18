@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 
 function CreateDog() {
-  let { rehomer_id } = useParams();
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [pictureUrl, setPictureUrl] = useState("");
@@ -66,7 +64,7 @@ function CreateDog() {
     data.email = email;
     data.adopted = false;
 
-    const createDogUrl = `${process.env.REACT_APP_API_HOST}/dogs/${rehomer_id}`;
+    const createDogUrl = `${process.env.REACT_APP_API_HOST}/dogs/`;
     const fetchConfig = {
       method: "post",
       body: JSON.stringify(data),
