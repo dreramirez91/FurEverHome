@@ -23,7 +23,7 @@ async def create_dog(
     return repo.create(dog, rehomer_id=account_data["id"])
 
 
-@router.get("/dogs", response_model=Dict)
+@router.get("/dogs/", response_model=Dict)
 async def list_all_dogs(
     repo: DogQueries = Depends(),
 ):
