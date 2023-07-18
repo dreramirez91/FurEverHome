@@ -15,7 +15,7 @@ def fake_get_current_account_data():
 
 
 class FakeDogQueries:
-    def update_dog(self, dog: UpdateDogIn, dog_id: int):
+    def update_dog(self, dog: UpdateDogIn, dog_id: int,):
         result = {
             "id": "1",
             "name": "Apple",
