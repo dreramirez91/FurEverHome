@@ -20,3 +20,5 @@ We have decided to implement an email feature for create dogs. We need to go bac
 Today we wrapped up Delete and Edit functions for front end. We are making great progress and have completed the front end. We are going to implement testing starting Monday
 ## 7/17
 Today we are focusing on Testing. Each of us will be writing a test for the project
+## 7/18
+Starting the day with testing our functions. All tests have successfully passed. We will now be moving on a navigate function for edit pages and changing Dogout ID to an int. 
