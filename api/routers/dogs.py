@@ -47,6 +47,15 @@ async def list_my_dogs(
     return repo.list_my_dogs(rehomer_id=account_data["id"])
 
 
+@router.get("/dog/{dog_id}", response_model=DogOut)
+async def get_one_dog(
+    dog_id: int,
+    repo: DogQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+):
+    return repo.get_one(dog_id, rehomer_id=account_data["id"])
+
+
 @router.put("/dog/{dog_id}", response_model=DogOut)
 async def update_dog(
     dog: UpdateDogIn,

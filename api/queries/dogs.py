@@ -187,6 +187,55 @@ class DogQueries:
                     result.append(dog)
                 return result
 
+    def get_one(self, dog_id: int, rehomer_id: int) -> DogOut:
+        with pool.connection() as conn:
+            with conn.cursor() as db:
+                result = db.execute(
+                    """
+                    SELECT
+                    id,
+                    name,
+                    age,
+                    picture_url,
+                    sex,
+                    breed,
+                    spayed_neutered,
+                    adopted,
+                    date_posted,
+                    rehomer_id,
+                    address_city,
+                    address_state,
+                    reason,
+                    email
+                    FROM dog
+                    WHERE id = %s AND rehomer_id = %s
+                    """,
+                    [dog_id, rehomer_id],
+                )
+                result = []
+                print("DB ---->", db)
+                for record in db:
+                    dog = DogOut(
+                        id=record[0],
+                        name=record[1],
+                        age=record[2],
+                        picture_url=record[3],
+                        sex=record[4],
+                        breed=record[5],
+                        spayed_neutered=record[6],
+                        adopted=record[7],
+                        date_posted=record[8],
+                        rehomer_id=record[9],
+                        address_city=record[10],
+                        address_state=record[11],
+                        reason=record[12],
+                        email=record[13],
+                    )
+                    result.append(dog)
+                output = {}
+                output["dogs"] = result
+                return output
+
     def delete_dog(self, dog_id: int, rehomer_id: int):
         with pool.connection() as conn:
             with conn.cursor() as db:

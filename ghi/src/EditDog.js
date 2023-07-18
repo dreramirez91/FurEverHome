@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function EditDog() {
@@ -43,6 +43,50 @@ function EditDog() {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
+
+  const populateForm = async (e) => {
+    e.preventDefault();
+
+    const data = {};
+
+    data.age = age;
+    data.picture_url = pictureUrl;
+    data.spayed_neutered = spayedNeutered;
+    data.adopted = adopted;
+    data.reason = reason;
+    data.address_city = addressCity;
+    data.address_state = addressState;
+    data.email = email;
+
+    const dogData = `${process.env.REACT_APP_API_HOST}/dog/${dog_id}`;
+    const fetchConfig = {
+      method: "get",
+      body: JSON.stringify(dogData),
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    console.log("YOUR DOG DATA ----->", dogData);
+    const editDogResponse = await fetch(dogData, fetchConfig);
+    if (editDogResponse.ok) {
+      const editDog = await editDogResponse.json();
+      console.log(editDog);
+
+      // setAge("");
+      // setPictureUrl("");
+      // setSpayedNeutered(false);
+      // setAdopted(false);
+      // setReason("");
+      // setAddressCity("");
+      // setAddressState("");
+      // setEmail("");
+    }
+  };
+
+  useEffect(() => {
+    populateForm();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
