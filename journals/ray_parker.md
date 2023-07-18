@@ -30,3 +30,6 @@ We're almost done coding out the front-end. What's left is the my dogs page and 
 
 ## July 17, 2023
 After today's lecture we went through the flake8 errors and resolved those. Our focus now is writing tests, we will each be writing a test. I am responsible for writing the my_dogs test.
+
+## July 18, 2023
+Our account data was not being used in our dogs queries so we integrated account data id with the rehomer id. We all changed our code for our assigned test route. Then we added our test functions and tested them out one by one. All five tests are passing now. Next we need to start working in the front end to make our pages look more presentable.
