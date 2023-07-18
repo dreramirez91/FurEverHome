@@ -1,3 +1,6 @@
+07/18/23
+Today, we will be adding our functional unit tests to the unit test branch. We will also be doing some housekeeping with some small issues we've seen on our frontend, such as our edit form not autopopulating. If there is time, we will go through our final checklist. No blockers.
+
 07/17/23
 During lecture this morning, we fixed our flake8 errors and frontend errors. Today, we will be focusing on each writing our unit tests. No blockers.
 
