@@ -44,6 +44,9 @@ class FakeDogQueries:
             ]
         }
 
+    def delete_dog(self, dog_id: int, rehomer_id: int):
+        return True
+
 
 def test_create_dog():
     app.dependency_overrides[DogQueries] = FakeDogQueries
@@ -112,3 +115,16 @@ def test_list_all_dogs():
     }
 
     assert res.status_code == 200
+
+
+def test_delete_dog():
+    app.dependency_overrides[DogQueries] = FakeDogQueries
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_account_data
+
+    res = client.delete("/dog/12")
+    data = res.json()
+
+    assert res.status_code == 200
+    assert {"success": True} == {"success": data}
