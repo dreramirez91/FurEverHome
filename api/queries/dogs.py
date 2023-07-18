@@ -187,15 +187,15 @@ class DogQueries:
                     result.append(dog)
                 return result
 
-    def delete_dog(self, dog_id: int):
+    def delete_dog(self, dog_id: int, rehomer_id: int):
         with pool.connection() as conn:
             with conn.cursor() as db:
                 db.execute(
                     """
                     DELETE FROM dog
-                    WHERE id = %s
+                    WHERE id = %s AND rehomer_id = %s
                     """,
-                    [dog_id],
+                    [dog_id, rehomer_id],
                 )
                 return True
 

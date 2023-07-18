@@ -36,7 +36,7 @@ async def delete_dog(
     repo: DogQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    return repo.delete_dog(dog_id)
+    return repo.delete_dog(dog_id, rehomer_id=account_data["id"])
 
 
 @router.get("/dog/", response_model=List[DogOut])
