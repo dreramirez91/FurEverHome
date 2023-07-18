@@ -212,29 +212,24 @@ class DogQueries:
                     """,
                     [dog_id, rehomer_id],
                 )
-                result = []
-                print("DB ---->", db)
-                for record in db:
-                    dog = DogOut(
-                        id=record[0],
-                        name=record[1],
-                        age=record[2],
-                        picture_url=record[3],
-                        sex=record[4],
-                        breed=record[5],
-                        spayed_neutered=record[6],
-                        adopted=record[7],
-                        date_posted=record[8],
-                        rehomer_id=record[9],
-                        address_city=record[10],
-                        address_state=record[11],
-                        reason=record[12],
-                        email=record[13],
-                    )
-                    result.append(dog)
-                output = {}
-                output["dogs"] = result
-                return output
+                my_dog = result.fetchone()
+                dog = DogOut(
+                    id=my_dog[0],
+                    name=my_dog[1],
+                    age=my_dog[2],
+                    picture_url=my_dog[3],
+                    sex=my_dog[4],
+                    breed=my_dog[5],
+                    spayed_neutered=my_dog[6],
+                    adopted=my_dog[7],
+                    date_posted=my_dog[8],
+                    rehomer_id=my_dog[9],
+                    address_city=my_dog[10],
+                    address_state=my_dog[11],
+                    reason=my_dog[12],
+                    email=my_dog[13],
+                )
+                return dog
 
     def delete_dog(self, dog_id: int, rehomer_id: int):
         with pool.connection() as conn:

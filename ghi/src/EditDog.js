@@ -45,8 +45,6 @@ function EditDog() {
   };
 
   const populateForm = async (e) => {
-    e.preventDefault();
-
     const data = {};
 
     data.age = age;
@@ -61,26 +59,24 @@ function EditDog() {
     const dogData = `${process.env.REACT_APP_API_HOST}/dog/${dog_id}`;
     const fetchConfig = {
       method: "get",
-      body: JSON.stringify(dogData),
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
     };
-    console.log("YOUR DOG DATA ----->", dogData);
-    const editDogResponse = await fetch(dogData, fetchConfig);
-    if (editDogResponse.ok) {
-      const editDog = await editDogResponse.json();
-      console.log(editDog);
+    const oneDogResponse = await fetch(dogData, fetchConfig);
+    if (oneDogResponse.ok) {
+      const oneDog = await oneDogResponse.json();
+      console.log(oneDog);
 
-      // setAge("");
-      // setPictureUrl("");
-      // setSpayedNeutered(false);
-      // setAdopted(false);
-      // setReason("");
-      // setAddressCity("");
-      // setAddressState("");
-      // setEmail("");
+      setAge(oneDog.age);
+      setPictureUrl(oneDog.picture_url);
+      setSpayedNeutered(oneDog.spayed_neutered);
+      setAdopted(oneDog.adopted);
+      setReason(oneDog.reason);
+      setAddressCity(oneDog.address_city);
+      setAddressState(oneDog.address_state);
+      setEmail(oneDog.email);
     }
   };
 
