@@ -1,4 +1,12 @@
-Day 10 - 7/15
+Day 13 - 7/19
+
+Yesterday, our team completed unit testing for all backend dog router functions. Today we will work on cleaning up our code (removing excessive console.log statements, making sure html input types are correct, etc.). No blockers
+
+Day 12 - 7/18
+
+Today, we will work on making sure all of our unit tests work and organizing them into a single file. We will also tackle making the edit form autopopulate with the given dogs existing information. No blockers.
+
+Day 11 - 7/17
 
 Last Friday, our team completed the minimum viable product for FurEverHome as a full-stack application. Today we will split up to try and create functioning unit tests. No blockers.
 
@@ -37,8 +45,7 @@ Yesterday, our team finished backend authentication except for the duplicate err
 Day 2 - 6/27
 
 Last night I spent about 4 hours studying authentication in SQL and encountered some errors I have yet to resolve. Today our team will attack authentication as a unit. No blockers.
-<<<<<<< HEAD
 
 Day 1 - 6/26
 
-# We worked on setting up Trello to be used in lieu of Gitlab issue board. Tonight, we will finish the authentication video. No blockers.
+We worked on setting up Trello to be used in lieu of Gitlab issue board. Tonight, we will finish the authentication video. No blockers.
