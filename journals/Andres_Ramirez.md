@@ -1,8 +1,12 @@
-Day 11 - 7/16
+Day 13 - 7/19
 
-Yesterday, our team split up and each member focused on studying how to implement a unit test for a given route. Today we will make sure that all of our tests work, integrate them into a single file, and then work on various code clean up. No blockers.
+Yesterday, our team completed unit testing for all backend dog router functions. Today we will work on cleaning up our code (removing excessive console.log statements, making sure html input types are correct, etc.). No blockers
 
-Day 10 - 7/15
+Day 12 - 7/18
+
+Today, we will work on making sure all of our unit tests work and organizing them into a single file. We will also tackle making the edit form autopopulate with the given dogs existing information. No blockers.
+
+Day 11 - 7/17
 
 Last Friday, our team completed the minimum viable product for FurEverHome as a full-stack application. Today we will split up to try and create functioning unit tests. No blockers.
 
