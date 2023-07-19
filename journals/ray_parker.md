@@ -33,3 +33,6 @@ After today's lecture we went through the flake8 errors and resolved those. Our 
 
 ## July 18, 2023
 Our account data was not being used in our dogs queries so we integrated account data id with the rehomer id. We all changed our code for our assigned test route. Then we added our test functions and tested them out one by one. All five tests are passing now. Next we need to start working in the front end to make our pages look more presentable.
+
+## July 19, 2023
+Login and Signup is functional without the flashing bug. We added a timeout function to prevent the message from showing. Error Handling is complete, we could add more, but it is not necessary. Today's focus is cleaning up the front-end and removing any extra console.logs from development.
