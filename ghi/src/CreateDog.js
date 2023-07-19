@@ -131,7 +131,7 @@ function CreateDog() {
                   value={pictureUrl}
                   placeholder="Picture URL"
                   required
-                  type="text"
+                  type="url"
                   id="picture_url"
                   name="picture_url"
                   className="form-control"
