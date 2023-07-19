@@ -51,18 +51,20 @@ function Signup() {
     };
     register(signUpData, "http://localhost:8000/api/accounts/")
       .then(() => {
-        if (token) {
-          setLoginFailed(false);
-          navigate("/");
-        } else {
-          setLoginFailed(true);
-        }
+        setTimeout(() => {
+          if (token) {
+            setLoginFailed(false);
+            navigate("/");
+          } else {
+            setLoginFailed(true);
+          }
+        }, 1000);
       })
       .catch(console.error);
     // ^ set state and show error here
   };
 
-  // useEffect idea ----
+  // why do we need this but we do
 
   useEffect(() => {
     if (token) {

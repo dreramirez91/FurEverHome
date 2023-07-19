@@ -46,7 +46,21 @@ function DogColumn(props) {
               {" "}
               Date Posted: {new Date(dog.date_posted).toLocaleDateString()}
             </div>
-            <Link to={`/dogs/${dog.id}/edit`} className="btn btn-info" state={{"age": dog.age, "picture_url": dog.picture_url,"spayed_neutered": dog.spayed_neutered, "adopted": dog.adopted, "reason": dog.reason, "address_city": dog.address_city, "address_state": dog.address_state, "email": dog.email, "rehomer_id": dog.rehomer_id}}>
+            <Link
+              to={`/dogs/${dog.id}/edit`}
+              className="btn btn-info"
+              state={{
+                age: dog.age,
+                picture_url: dog.picture_url,
+                spayed_neutered: dog.spayed_neutered,
+                adopted: dog.adopted,
+                reason: dog.reason,
+                address_city: dog.address_city,
+                address_state: dog.address_state,
+                email: dog.email,
+                rehomer_id: dog.rehomer_id,
+              }}
+            >
               Edit
             </Link>
             <button
@@ -90,8 +104,6 @@ const MyDogs = (props) => {
           i = i + 1;
           if (i > 2) {
             i = 0;
-          } else {
-            console.error(dogsResponse);
           }
         }
 

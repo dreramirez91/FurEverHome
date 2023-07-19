@@ -1,8 +1,5 @@
 # router.py
-from fastapi import (
-    Depends,
-    APIRouter,
-)
+from fastapi import Depends, APIRouter, HTTPException, status
 from authenticator import authenticator
 
 from typing import List, Dict
@@ -36,7 +33,14 @@ async def delete_dog(
     repo: DogQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    return repo.delete_dog(dog_id, rehomer_id=account_data["id"])
+    try:
+        return repo.delete_dog(dog_id, rehomer_id=account_data["id"])
+    # This always works because if dog is not in table SQL doesn't throw an error just DELETE 0
+    except dog_id.DoesNotExist:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="That dog does not exist",
+        )
 
 
 @router.get("/dog/", response_model=List[DogOut])

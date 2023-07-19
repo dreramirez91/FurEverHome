@@ -1,5 +1,4 @@
-import {React, useState, useEffect} from 'react';
-
+import { React, useState, useEffect } from "react";
 
 function DogColumn(props) {
   return (
@@ -32,7 +31,7 @@ function DogColumn(props) {
   );
 }
 
-const DogList = (props) =>  {
+const DogList = (props) => {
   const [dogColumns, setDogColumns] = useState([[], [], []]);
 
   const fetchDogs = async () => {
@@ -49,11 +48,9 @@ const DogList = (props) =>  {
         let i = 0;
         for (const dogsResponse of data.dogs) {
           columns[i].push(dogsResponse);
-            i = i + 1;
-            if (i > 2) {
-              i = 0;
-          } else {
-            console.error(dogsResponse);
+          i = i + 1;
+          if (i > 2) {
+            i = 0;
           }
         }
 
@@ -62,7 +59,7 @@ const DogList = (props) =>  {
     } catch (e) {
       console.error(e);
     }
-  }
+  };
 
   useEffect(() => {
     fetchDogs();
@@ -71,25 +68,29 @@ const DogList = (props) =>  {
   return (
     <>
       <div className="px-4 py-5 my-5 mt-0 text-center bg-info">
-        <img className="bg-white rounded shadow d-block mx-auto mb-4" src="" alt="" width="600" />
+        <img
+          className="bg-white rounded shadow d-block mx-auto mb-4"
+          src=""
+          alt=""
+          width="600"
+        />
         <h1 className="display-5 fw-bold">Available Dogs</h1>
         <div className="col-lg-6 mx-auto">
           <p className="lead mb-4">
-            If you are interested in adopting one of the dogs below please email the owner directly.
+            If you are interested in adopting one of the dogs below please email
+            the owner directly.
           </p>
         </div>
       </div>
       <div className="container">
         <div className="row">
           {dogColumns.map((dogList, index) => {
-            return (
-              <DogColumn key={index} list={dogList} />
-            );
+            return <DogColumn key={index} list={dogList} />;
           })}
         </div>
       </div>
     </>
   );
-}
+};
 
 export default DogList;

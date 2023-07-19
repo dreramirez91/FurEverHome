@@ -27,12 +27,14 @@ export default function LoginForm() {
     console.log(username);
     login(username, password)
       .then(() => {
-        if (token) {
-          setLoginFailed(false);
-          navigate("/");
-        } else {
-          setLoginFailed(true);
-        }
+        setTimeout(() => {
+          if (token) {
+            setLoginFailed(false);
+            navigate("/");
+          } else {
+            setLoginFailed(true);
+          }
+        }, 500);
       })
       .catch(console.error);
   };
