@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 function CreateDog() {
+  let { rehomerId } = useParams();
+  let navigate = useNavigate();
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [pictureUrl, setPictureUrl] = useState("");
@@ -11,6 +14,7 @@ function CreateDog() {
   const [addressCity, setAddressCity] = useState("");
   const [addressState, setAddressState] = useState("");
   const [email, setEmail] = useState("");
+
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -77,6 +81,7 @@ function CreateDog() {
     const createDogResponse = await fetch(createDogUrl, fetchConfig);
     if (createDogResponse.ok) {
       const createDog = await createDogResponse.json();
+      navigate(`/dogs/${rehomerId}/mydogs`, { replace: false });
 
       setName("");
       setAge("");

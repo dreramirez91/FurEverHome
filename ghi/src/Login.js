@@ -24,7 +24,6 @@ export default function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(username);
     login(username, password)
       .then(() => {
         setTimeout(() => {
