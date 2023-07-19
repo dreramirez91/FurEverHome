@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 function CreateDog() {
-  let { rehomer_id } = useParams();
+  let { rehomerId } = useParams();
+  let navigate = useNavigate();
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [pictureUrl, setPictureUrl] = useState("");
@@ -13,6 +14,7 @@ function CreateDog() {
   const [addressCity, setAddressCity] = useState("");
   const [addressState, setAddressState] = useState("");
   const [email, setEmail] = useState("");
+
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -66,7 +68,7 @@ function CreateDog() {
     data.email = email;
     data.adopted = false;
 
-    const createDogUrl = `${process.env.REACT_APP_API_HOST}/dogs/${rehomer_id}`;
+    const createDogUrl = `${process.env.REACT_APP_API_HOST}/dogs/`;
     const fetchConfig = {
       method: "post",
       body: JSON.stringify(data),
@@ -79,7 +81,7 @@ function CreateDog() {
     const createDogResponse = await fetch(createDogUrl, fetchConfig);
     if (createDogResponse.ok) {
       const createDog = await createDogResponse.json();
-      console.log(createDog);
+      navigate(`/dogs/${rehomerId}/mydogs`, { replace: false });
 
       setName("");
       setAge("");
@@ -133,7 +135,7 @@ function CreateDog() {
                   value={pictureUrl}
                   placeholder="Picture URL"
                   required
-                  type="text"
+                  type="url"
                   id="picture_url"
                   name="picture_url"
                   className="form-control"

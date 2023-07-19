@@ -19,7 +19,7 @@ class DogIn(BaseModel):
 
 
 class DogOut(BaseModel):
-    id: str
+    id: int
     name: str
     age: int
     picture_url: str
@@ -114,6 +114,7 @@ class DogQueries:
                         reason,
                         email
                     FROM dog
+                    WHERE adopted = false
                     ORDER BY date_posted;
                     """
                 )
@@ -187,19 +188,19 @@ class DogQueries:
                     result.append(dog)
                 return result
 
-    def delete_dog(self, dog_id: int):
+    def delete_dog(self, dog_id: int, rehomer_id: int):
         with pool.connection() as conn:
             with conn.cursor() as db:
                 db.execute(
                     """
                     DELETE FROM dog
-                    WHERE id = %s
+                    WHERE id = %s AND rehomer_id = %s
                     """,
-                    [dog_id],
+                    [dog_id, rehomer_id],
                 )
                 return True
 
-    def update_dog(self, dog: UpdateDogIn, dog_id: int):
+    def update_dog(self, dog: UpdateDogIn, dog_id: int, rehomer_id: int):
         with pool.connection() as conn:
             with conn.cursor() as db:
                 print(db.description)
@@ -214,7 +215,7 @@ class DogQueries:
                     address_city = %s,
                     address_state = %s,
                     email = %s
-                    WHERE id = %s
+                    WHERE id = %s AND rehomer_id = %s
                     RETURNING rehomer_id,name,breed,sex;
                     """,
                     [
@@ -227,6 +228,7 @@ class DogQueries:
                         dog.address_state,
                         dog.email,
                         dog_id,
+                        rehomer_id,
                     ],
                 )
                 id = dog_id

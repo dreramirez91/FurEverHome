@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function DogColumn(props) {
   async function deleteDog(dogId) {
@@ -46,7 +46,21 @@ function DogColumn(props) {
               {" "}
               Date Posted: {new Date(dog.date_posted).toLocaleDateString()}
             </div>
-            <Link to={`/dogs/${dog.id}/edit`} className="btn btn-info">
+            <Link
+              to={`/dogs/${dog.id}/edit`}
+              className="btn btn-info"
+              state={{
+                age: dog.age,
+                picture_url: dog.picture_url,
+                spayed_neutered: dog.spayed_neutered,
+                adopted: dog.adopted,
+                reason: dog.reason,
+                address_city: dog.address_city,
+                address_state: dog.address_state,
+                email: dog.email,
+                rehomer_id: dog.rehomer_id,
+              }}
+            >
               Edit
             </Link>
             <button
@@ -63,12 +77,11 @@ function DogColumn(props) {
   );
 }
 
-const MyDogs = (props) => {
+const MyDogs = () => {
   const [dogColumns, setDogColumns] = useState([[], [], []]);
-  let { rehomer_id } = useParams();
 
   const fetchDogs = async () => {
-    const url = `${process.env.REACT_APP_API_HOST}/dog/${rehomer_id}`;
+    const url = `${process.env.REACT_APP_API_HOST}/dog/`;
     const fetchConfig = {
       method: "get",
       credentials: "include",
@@ -81,7 +94,6 @@ const MyDogs = (props) => {
       const response = await fetch(url, fetchConfig);
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
 
         const columns = [[], [], []];
 
@@ -91,8 +103,6 @@ const MyDogs = (props) => {
           i = i + 1;
           if (i > 2) {
             i = 0;
-          } else {
-            console.error(dogsResponse);
           }
         }
 

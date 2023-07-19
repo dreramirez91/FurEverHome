@@ -4,7 +4,6 @@ import Home from "./Home.js";
 import Signup from "./Signup.js";
 import Login from "./Login.js";
 import CreateDog from "./CreateDog.js";
-// import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav.js";
 import "./App.css";
 import DogList from "./ListDogs.js";
