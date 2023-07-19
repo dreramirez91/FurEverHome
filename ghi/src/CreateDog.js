@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function CreateDog() {
   let { rehomerId } = useParams();
@@ -14,7 +14,6 @@ function CreateDog() {
   const [addressCity, setAddressCity] = useState("");
   const [addressState, setAddressState] = useState("");
   const [email, setEmail] = useState("");
-
 
   const handleNameChange = (e) => {
     setName(e.target.value);

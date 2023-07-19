@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
@@ -8,6 +8,7 @@ function Nav() {
   const { token } = useAuthContext();
   const { fetchWithCookie } = useToken();
   const [rehomerId, setRehomerId] = useState(null);
+  const navigate = useNavigate();
 
   let loggedIn = null;
   if (token) {
@@ -27,6 +28,10 @@ function Nav() {
     } catch (e) {
       console.error(e);
     }
+  };
+
+  const goHome = () => {
+    navigate("/", { replace: false });
   };
 
   useEffect(() => {
@@ -80,7 +85,10 @@ function Nav() {
                     Add a Dog
                   </NavLink>
                   <button
-                    onClick={logout}
+                    onClick={() => {
+                      logout();
+                      goHome();
+                    }}
                     className="btn"
                     style={{ color: "white" }}
                   >
