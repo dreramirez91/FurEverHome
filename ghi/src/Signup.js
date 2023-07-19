@@ -11,16 +11,9 @@ function Signup() {
   const [lastName, setLastName] = useState("");
   const [terms, setTerms] = useState(false);
   const { register } = useToken();
-  // can you explain what useToken is and how this rips register out of it?
   const { token } = useAuthContext();
   const navigate = useNavigate();
   const [loginFailed, setLoginFailed] = useState(false);
-  // let loggedIn = true;
-  // if (token) {
-  //   loggedIn = true;
-  // } else {
-  //   loggedIn = false;
-  // }
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -61,10 +54,7 @@ function Signup() {
         }, 1000);
       })
       .catch(console.error);
-    // ^ set state and show error here
   };
-
-  // why do we need this but we do
 
   useEffect(() => {
     if (token) {

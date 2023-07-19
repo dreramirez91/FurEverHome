@@ -77,7 +77,6 @@ function CreateDog() {
     const createDogResponse = await fetch(createDogUrl, fetchConfig);
     if (createDogResponse.ok) {
       const createDog = await createDogResponse.json();
-      console.log(createDog);
 
       setName("");
       setAge("");

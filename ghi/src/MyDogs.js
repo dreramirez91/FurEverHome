@@ -77,7 +77,7 @@ function DogColumn(props) {
   );
 }
 
-const MyDogs = (props) => {
+const MyDogs = () => {
   const [dogColumns, setDogColumns] = useState([[], [], []]);
 
   const fetchDogs = async () => {
@@ -94,7 +94,6 @@ const MyDogs = (props) => {
       const response = await fetch(url, fetchConfig);
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
 
         const columns = [[], [], []];
 

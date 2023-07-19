@@ -74,7 +74,6 @@ function EditDog() {
     if (editDogResponse.ok) {
       const editDog = await editDogResponse.json();
       navigate(`/dogs/${rehomerId}/mydogs`, {replace: false})
-      console.log(editDog);
 
       setAge("");
       setPictureUrl("");
