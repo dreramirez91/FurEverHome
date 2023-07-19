@@ -30,16 +30,8 @@ View their list of dogs and see who is adopted and available.
 
 ## Project Initialization
 
-To fully enjoy this application on your local machine, please make sure to follow these steps:
+To fully enjoy this application follow the link below:
 
-"_"Clone the repository down to your local machine
-"_"CD into the new project directory
-
-"\_"Run docker volume create jwtdown-db-data
-
-REPLACE 35-43 WITH: "contain links to the deployed application in its staging environment" as our application is not intended to be copied on the user's PC but instead run through the browser
-
-"\_"Run docker compose build
-"\*"Run docker compose up
+-link to the deployed application in its staging environment-
 
 # Enjoy FurEverHome to its fullest!
