@@ -1,4 +1,4 @@
-FurEver Home
+### FurEverHome
 
 Kristian "Kallen" Allen
 Rachel "Ray" Parker
@@ -6,52 +6,34 @@ Marc "Marc" Rey
 Michael Martinez
 Andres "Dre" Ramirez
 
-FurEver Home - Connect hearts with FurEver Homes
+FurEverHome - "Connecting hearts with FurEverHomes"
 
-Design
+## Design
 
-API design
-Data model
-GHI
-Integrations
+[API design](api-design.md)
+![GHI](fureverhomewireframe.png)
 
-Intended market
-We are targeting general consumers in the self-care market who are looking for a tailored shopping experience. Consumers of skincare products, bath & body products, and home goods who can find a wide array of products that conform to their tastes.
+## Intended market
+We are targeting dog lovers who are wanting to adopt and re-home.
 
-Functionality
+## Functionality
 
-Visitors to the site can take a home or body scent profile quiz that will filter Smelli Belli’s products to match their tastes:
+Visitors to the site can view available dogs to adopt and sign-up for an account that will allow them access to:
 
-A home quiz to find them a home product that matches their scent profile
-A body quiz to find them a body product that matches their scent profile
+Post a dog that needs to be rehomed and the post will show them available for adoption.
 
-Users can click on suggested products to go to product detail page to either wish list or add to cart
-Products page for a plain list view of all products
-Accounts
-Employees can add new products, view/search inventory, and update inventory stock
-Wish list for registered accounts so users can build a list of products based on their preferences/quiz results and save those grouped products for later
-About Page with company info, ingredient sourcing info, and FAQ
-Social Media Links/Contact at the footer
-Contact => Email or Help Chat via Facebook Messenger for questions/suggestions
-Main Page features popular products and quizzes
-The cart features products that was added from the product page
+Users can post their dog for adoption.
+Click on their dog post to edit details.
+Delete their dog post.
+View their list of dogs and see who is adopted and available.
 
-update quantity with an increment and decrement counter
-can checkout and will populate the order end point
-
-Project Initialization
+## Project Initialization
 To fully enjoy this application on your local machine, please make sure to follow these steps:
 
-Clone the repository down to your local machine
-CD into the new project directory
-Run docker volume create fureverhome-db DO WE NEED THIS?
+"*"Clone the repository down to your local machine
+"*"CD into the new project directory
+"*"Run docker volume create fureverhome-db
+"*"Run docker compose build
+"*"Run docker compose up
 
-Run docker compose build
-
-Run docker compose up
-
-Run docker exec -it smelli-belli-inventory-api-1 bash
-
-Run python manage.py loaddata products.json
-
-Exit the container's CLI, and enjoy Smelli Belli to its fullest!
+# Enjoy FurEverHome to its fullest!
