@@ -35,7 +35,6 @@ async def delete_dog(
 ):
     try:
         return repo.delete_dog(dog_id, rehomer_id=account_data["id"])
-    # This always works because if dog is not in table SQL doesn't throw an error just DELETE 0
     except dog_id.DoesNotExist:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,

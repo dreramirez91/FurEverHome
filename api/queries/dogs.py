@@ -190,7 +190,7 @@ class DogQueries:
     def delete_dog(self, dog_id: int, rehomer_id: int):
         with pool.connection() as conn:
             with conn.cursor() as db:
-                result = db.execute(
+                db.execute(
                     """
                     DELETE FROM dog
                     WHERE id = %s AND rehomer_id = %s
