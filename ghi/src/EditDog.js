@@ -3,6 +3,7 @@ import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 function EditDog() {
   let { state } = useLocation();
+  console.log("STATE ---->", state);
   let { dog_id } = useParams();
   let navigate = useNavigate();
   const [age, setAge] = useState(state.age);
@@ -73,7 +74,7 @@ function EditDog() {
     const editDogResponse = await fetch(editDogUrl, fetchConfig);
     if (editDogResponse.ok) {
       const editDog = await editDogResponse.json();
-      navigate(`/dogs/${rehomerId}/mydogs`, {replace: false})
+      navigate(`/dogs/${rehomerId}/mydogs`, { replace: false });
       console.log(editDog);
 
       setAge("");

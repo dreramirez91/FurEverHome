@@ -49,11 +49,11 @@ function Signup() {
       password: password,
       full_name: firstName + " " + lastName,
     };
-    const response = await register(
+    const response = register(
       signUpData,
       "http://localhost:8000/api/accounts/"
     );
-    console.log(token);
+    console.log(response);
   };
 
   // useEffect idea ----

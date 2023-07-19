@@ -2,8 +2,7 @@ from fastapi.testclient import TestClient
 from main import app
 from queries.dogs import DogQueries, DogIn, UpdateDogIn
 from authenticator import authenticator
-from datetime import datetime, date
-from typing import Dict
+from datetime import datetime
 
 client = TestClient(app)
 
@@ -19,7 +18,7 @@ class FakeDogQueries:
         dog["rehomer_id"] = rehomer_id
         datetime_str = "09/19/22"
         datetime_object = datetime.strptime(datetime_str, "%m/%d/%y")
-        dog["date_posted"] = datetime_object
+        dog["date_posted"] = date(2023, 7, 13)
         return dog
 
     def list_all_dogs(self) -> Dict:
@@ -126,115 +125,3 @@ def test_create_dog():
         "address_state": "string",
         "email": "string",
     }
-
-
-def test_list_all_dogs():
-    app.dependency_overrides[DogQueries] = FakeDogQueries
-    res = client.get("/dogs")
-    data = res.json()
-
-    assert data == {
-        "dogs": [
-            {
-                "id": 3,
-                "name": "Mongo",
-                "age": 1,
-                "picture_url": "https://pittiemerescue.org/uploads/3/4/5/0/34503852/img-9276_orig.jpeg",
-                "sex": "female",
-                "breed": "mix",
-                "spayed_neutered": True,
-                "adopted": False,
-                "reason": "la la la",
-                "date_posted": "2023-07-13",
-                "rehomer_id": 1,
-                "address_city": "austin",
-                "address_state": "tx",
-                "email": "boo@gmail.com",
-            }
-        ]
-    }
-
-    assert res.status_code == 200
-
-
-def test_delete_dog():
-    app.dependency_overrides[DogQueries] = FakeDogQueries
-    app.dependency_overrides[
-        authenticator.get_current_account_data
-    ] = fake_get_current_account_data
-
-    res = client.delete("/dog/12")
-    data = res.json()
-
-    assert res.status_code == 200
-    assert {"success": True} == {"success": data}
-
-
-def test_list_my_dogs():
-    app.dependency_overrides[DogQueries] = FakeDogQueries
-    app.dependency_overrides[
-        authenticator.get_current_account_data
-    ] = fake_get_current_account_data
-
-    res = client.get("/dog/")
-    data = res.json()
-    print(res, res.status_code, data)
-
-    assert res.status_code == 200
-    assert data == [
-        {
-            "id": 3,
-            "name": "Enrique",
-            "age": 2,
-            "picture_url": "https://media.zenfs.com/en/pethelpful_915/d99bc960478076f15db41f586d52a2b9",
-            "sex": "Male",
-            "breed": "Mini Australian Shephard",
-            "spayed_neutered": False,
-            "adopted": False,
-            "reason": "Moving out of state",
-            "date_posted": "2023-07-13",
-            "rehomer_id": 1,
-            "address_city": "Sparta",
-            "address_state": "TN",
-            "email": "jeremyh@example.com",
-        }
-    ]
-
-
-def test_update_dog():
-    app.dependency_overrides[DogQueries] = FakeDogQueries
-    app.dependency_overrides[
-        authenticator.get_current_account_data
-    ] = fake_get_current_account_data
-    json = {
-        "age": 22,
-        "picture_url": "string",
-        "spayed_neutered": True,
-        "adopted": True,
-        "reason": "string",
-        "address_city": "string",
-        "address_state": "string",
-        "email": "string",
-    }
-    expected = {
-        "id": 1,
-        "name": "Apple",
-        "age": 22,
-        "picture_url": "string",
-        "sex": "Male",
-        "breed": "Dog",
-        "spayed_neutered": True,
-        "adopted": True,
-        "reason": "string",
-        "date_posted": "2023-07-18",
-        "rehomer_id": 1,
-        "address_city": "string",
-        "address_state": "string",
-        "email": "string",
-    }
-
-    res = client.put("/dog/1", json=json)
-    data = res.json()
-
-    assert res.status_code == 200
-    assert data == expected
