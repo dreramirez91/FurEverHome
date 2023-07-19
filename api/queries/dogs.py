@@ -114,6 +114,7 @@ class DogQueries:
                         reason,
                         email
                     FROM dog
+                    WHERE adopted = false
                     ORDER BY date_posted;
                     """
                 )
