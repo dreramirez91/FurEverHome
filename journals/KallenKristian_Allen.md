@@ -1,3 +1,6 @@
+07/19/23
+Today, we will be focusing on fixing our last bug with the signup/login page where it is flashing username already exists. We will also write a few try/except blocks for backend error handling and fix our html input types for our forms on the frontend. Otherwise, all that is left is general code cleanup!
+
 07/18/23
 Today, we will be adding our functional unit tests to the unit test branch. We will also be doing some housekeeping with some small issues we've seen on our frontend, such as our edit form not autopopulating. If there is time, we will go through our final checklist. No blockers.
 
