@@ -23,4 +23,6 @@ Today we are focusing on Testing. Each of us will be writing a test for the proj
 ## 7/18
 Starting the day with testing our functions. All tests have successfully passed. We will now be moving on a navigate function for edit pages and changing Dogout ID to an int.
 ## 7/19
-Mob coding today to fix a data error for time.sleep on the login and Signup function. issues fixed this morning. We will be cleaning up the code as well today. Discussing next issues
+Mob coding today to fix a data error for time.sleep on the login and Signup function. issues fixed this morning. We will be cleaning up the code as well today. Discussing next issues. Finished MVP
+## 7/20
+Finished MVP yesterday. Playing with application tyo find any bugs. Steadying for final until deployment lecture. 
