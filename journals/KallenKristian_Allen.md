@@ -1,3 +1,6 @@
+07/20/23
+Yesterday, our team officially completed the MVP, performed code cleanup, and ran flake8 once more. We plan to study for the assessment until Riley's deployment lecture, otherwise if any styling is added we will do so under a stretch goals branch. No blockers.
+
 07/19/23
 Today, we will be focusing on fixing our last bug with the signup/login page where it is flashing username already exists. We will also write a few try/except blocks for backend error handling and fix our html input types for our forms on the frontend. Otherwise, all that is left is general code cleanup!
 
