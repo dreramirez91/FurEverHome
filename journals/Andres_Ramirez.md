@@ -1,3 +1,7 @@
+Day 14 - 7/20
+
+Yesterday, our team completed the minimum viable product for our web application. Going forward, we will be waiting for the Riley's deployment lecture and will focus on studying for the assessment until that time. We will journal should we decide to return the project for any additional styling. No blockers.
+
 Day 13 - 7/19
 
 Yesterday, our team completed unit testing for all backend dog router functions. Today we will work on cleaning up our code (removing excessive console.log statements, making sure html input types are correct, etc.). No blockers
