@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
+import Modal from "./Modal";
 
 function Nav() {
   const { logout } = useToken();
@@ -9,6 +10,7 @@ function Nav() {
   const { fetchWithCookie } = useToken();
   const [rehomerId, setRehomerId] = useState(null);
   const navigate = useNavigate();
+  const [openModal, setOpenModal] = useState(false);
 
   let loggedIn = null;
   if (token) {
@@ -59,13 +61,14 @@ function Nav() {
                   >
                     Sign up!
                   </NavLink>
-                  <NavLink
-                    className="btn"
-                    style={{ color: "white" }}
-                    to="/login"
+                  <button
+                    className="openModalBtn"
+                    onClick={() => {
+                      setOpenModal(true);
+                    }}
                   >
-                    Login
-                  </NavLink>
+                    Login {openModal && <Modal closeModal={setOpenModal} />}
+                  </button>
                 </>
               )}
               {loggedIn && (

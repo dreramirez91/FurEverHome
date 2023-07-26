@@ -9,9 +9,12 @@ import "./App.css";
 import DogList from "./ListDogs.js";
 import EditDog from "./EditDog.js";
 import MyDogs from "./MyDogs.js";
+import Modal from "./Modal.js";
+import { useState } from "react";
 
 function App() {
   const baseUrl = "http://localhost:8000" || process.env.REACT_APP_API_HOST;
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <AuthProvider baseUrl={baseUrl}>
@@ -27,6 +30,7 @@ function App() {
             <Route path="dogs" element={<DogList />} />
             <Route path="dogs/:rehomer_id/mydogs" element={<MyDogs />} />
           </Routes>
+          <Modal />
         </div>
       </BrowserRouter>
     </AuthProvider>
