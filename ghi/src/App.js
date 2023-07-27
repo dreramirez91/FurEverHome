@@ -25,7 +25,6 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="signup" element={<Signup />} />
-              <Route path="login" element={<Login />} />
               <Route path="dogs/:rehomer_id/create" element={<CreateDog />} />
               <Route path="dogs/:dog_id/edit" element={<EditDog />} />
               <Route path="dogs" element={<DogList />} />

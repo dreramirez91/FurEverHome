@@ -3,7 +3,8 @@ import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 import { useEffect } from "react";
 
-export default function LoginModal() {
+export default function LoginModal(props) {
+  console.log(props);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useToken();
@@ -42,21 +43,16 @@ export default function LoginModal() {
   }, [token]);
   return (
     <div>
-      <button
-        type="button"
-        className="btn btn-primary"
-        data-toggle="modal"
-        data-target="#myModal"
-      >
-        Login
-      </button>
-
       <div className="modal" id="myModal">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
               <h4 className="modal-title">Login</h4>
-              <button type="button" className="close" data-dismiss="modal">
+              <button
+                type="button"
+                className="close"
+                onClick={() => props.setShowModal(false)}
+              >
                 &times;
               </button>
             </div>
@@ -106,7 +102,7 @@ export default function LoginModal() {
               <button
                 type="button"
                 className="btn btn-danger"
-                data-dismiss="modal"
+                onClick={() => props.setShowModal(false)}
               >
                 Close
               </button>

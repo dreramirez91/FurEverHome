@@ -10,6 +10,7 @@ function Nav() {
   const { fetchWithCookie } = useToken();
   const [rehomerId, setRehomerId] = useState(null);
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
 
   let loggedIn = null;
   if (token) {
@@ -60,7 +61,16 @@ function Nav() {
                   >
                     Sign up!
                   </NavLink>
-                  <LoginModal />
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#myModal"
+                    onClick={() => setShowModal(true)}
+                  >
+                    Login!
+                    {showModal && <LoginModal setShowModal={setShowModal} />}
+                  </button>
                 </>
               )}
               {loggedIn && (
