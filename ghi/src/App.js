@@ -20,7 +20,7 @@ function App() {
     <>
       <AuthProvider baseUrl={baseUrl}>
         <BrowserRouter>
-          <Nav />
+          <Nav setShowModal={setShowModal} />
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -33,6 +33,7 @@ function App() {
           </div>
         </BrowserRouter>
       </AuthProvider>
+      {showModal && <LoginModal setShowModal={setShowModal} />}
     </>
   );
 }

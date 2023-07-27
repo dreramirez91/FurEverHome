@@ -4,7 +4,7 @@ import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
 import LoginModal from "./LoginModal";
 
-function Nav() {
+function Nav(props) {
   const { logout } = useToken();
   const { token } = useAuthContext();
   const { fetchWithCookie } = useToken();
@@ -66,10 +66,9 @@ function Nav() {
                     className="btn btn-primary"
                     data-toggle="modal"
                     data-target="#myModal"
-                    onClick={() => setShowModal(true)}
+                    onClick={() => props.setShowModal(true)}
                   >
                     Login!
-                    {showModal && <LoginModal setShowModal={setShowModal} />}
                   </button>
                 </>
               )}
