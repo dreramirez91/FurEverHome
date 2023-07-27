@@ -118,7 +118,6 @@ export default function LoginModal(props) {
                         <button
                           className="btn btn-primary"
                           onClick={handleSubmit}
-                          data-dismiss="modal"
                         >
                           Login
                           {/* {<LoginModal /> && showModal} */}
