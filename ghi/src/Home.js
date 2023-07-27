@@ -7,7 +7,7 @@ function Home() {
       <video className="video" src={dogBackground} autoPlay loop muted />
       <h1
         className="display-1 fw-bold"
-        style={{ textShadow: "1px 2px #007bff" }}
+        style={{ textShadow: "3px 3px #007bff" }}
       >
         FurEver Home
       </h1>
