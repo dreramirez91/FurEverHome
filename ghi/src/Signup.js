@@ -63,6 +63,15 @@ function Signup() {
     }
   }, [token, navigate]);
 
+  useEffect(() => {
+    setFirstName("");
+    setLastName("");
+    setPassword("");
+    setUsername("");
+  }, []);
+
+  // Why isn't the above resetting what's in the fields on page load?
+
   return (
     <>
       <div className="row">
@@ -81,7 +90,7 @@ function Signup() {
                   name="username"
                   className="form-control"
                 />
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username"></label>
                 {loginFailed && (
                   <span>That username has already been taken.</span>
                 )}
@@ -90,14 +99,14 @@ function Signup() {
                 <input
                   onChange={handlePasswordChange}
                   value={password}
-                  placeholder="password"
+                  placeholder="Password"
                   required
                   type="password"
                   id="password"
                   name="password"
                   className="form-control"
                 />
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -110,7 +119,7 @@ function Signup() {
                   name="first_name"
                   className="form-control"
                 />
-                <label htmlFor="first_name">First Name</label>
+                <label htmlFor="first_name"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -123,7 +132,7 @@ function Signup() {
                   name="last_name"
                   className="form-control"
                 />
-                <label htmlFor="last_name">Last Name</label>
+                <label htmlFor="last_name"></label>
               </div>
               <div className="form-check mb-3">
                 <input

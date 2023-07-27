@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 import { useEffect } from "react";
-import $ from "jquery";
+// import $ from "jquery";
 
 export default function LoginModal(props) {
-  console.log("SHOW MODAL???", props.showModal);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useToken();
   const { token } = useAuthContext();
   const [loginFailed, setLoginFailed] = useState(false);
-  // const [showModal, setShowModal] = useState(true);
 
   const handleUsernameChange = (e) => {
     const value = e.target.value;
@@ -24,17 +22,20 @@ export default function LoginModal(props) {
   };
 
   const handleSubmit = async (e) => {
+    console.log("HELLO");
     e.preventDefault();
     login(username, password)
       .then(() => {
         setTimeout(() => {
           if (token) {
             setLoginFailed(false);
-            props.setShowModal(false);
             // $("#myModal").modal("hide");
             // props.setShowModal(false);
+            console.log("Login successful");
+            console.log(token);
           } else {
             // setShowModal(true);
+            console.log("Login failed");
             setLoginFailed(true);
             // <LoginModal />;
           }
@@ -54,7 +55,7 @@ export default function LoginModal(props) {
   // }
   return (
     <>
-      <div onClick={(e) => e.stopPropagation()}>
+      <div onClick={(e) => e.stopPropagation()} style={{ color: "black" }}>
         <div className="modal" id="myModal">
           <div className="modal-dialog">
             <div className="modal-content">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function DogColumn(props) {
   async function deleteDog(dogId) {
-    const url = `${process.env.REACT_APP_API_HOST}/dog/${dogId}`;
+    const url = `http://localhost:8000/dog/${dogId}`;
     const fetchConfig = {
       method: "delete",
       credentials: "include",

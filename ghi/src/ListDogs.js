@@ -35,7 +35,7 @@ const DogList = (props) => {
   const [dogColumns, setDogColumns] = useState([[], [], []]);
 
   const fetchDogs = async () => {
-    const url = `${process.env.REACT_APP_API_HOST}/dogs/`;
+    const url = "http://localhost:8000/dogs/";
 
     try {
       const response = await fetch(url);

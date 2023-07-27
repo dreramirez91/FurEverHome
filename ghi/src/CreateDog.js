@@ -113,7 +113,7 @@ function CreateDog() {
                   name="name"
                   className="form-control"
                 />
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -126,7 +126,7 @@ function CreateDog() {
                   name="age"
                   className="form-control"
                 />
-                <label htmlFor="age">Age</label>
+                <label htmlFor="age"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -139,7 +139,7 @@ function CreateDog() {
                   name="picture_url"
                   className="form-control"
                 />
-                <label htmlFor="picture_url">Picture URL</label>
+                <label htmlFor="picture_url"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -152,7 +152,7 @@ function CreateDog() {
                   name="sex"
                   className="form-control"
                 />
-                <label htmlFor="sex">Sex</label>
+                <label htmlFor="sex"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -165,7 +165,7 @@ function CreateDog() {
                   name="breed"
                   className="form-control"
                 />
-                <label htmlFor="breed">Breed</label>
+                <label htmlFor="breed"></label>
               </div>
               <div className="form-floating mb-3">
                 <textarea
@@ -176,7 +176,7 @@ function CreateDog() {
                   name="reason"
                   className="form-control"
                 ></textarea>
-                <label htmlFor="reason">Reason</label>
+                <label htmlFor="reason"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -188,7 +188,7 @@ function CreateDog() {
                   name="address_city"
                   className="form-control"
                 />
-                <label htmlFor="address_city">Address City</label>
+                <label htmlFor="address_city"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -200,7 +200,7 @@ function CreateDog() {
                   name="address_state"
                   className="form-control"
                 />
-                <label htmlFor="address_state">Address State</label>
+                <label htmlFor="address_state"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -212,7 +212,7 @@ function CreateDog() {
                   name="email"
                   className="form-control"
                 />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email"></label>
               </div>
               <div className="form-check mb-3">
                 <input
