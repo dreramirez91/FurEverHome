@@ -100,12 +100,7 @@ export default function LoginModal(props) {
                           />
                           <label htmlFor="password">Password</label>
                         </div>
-                        <button
-                          className="btn btn-primary"
-                          // {...(loginFailed ? "" :   `${data-dismiss="modal"})}
-                        >
-                          Login
-                        </button>
+                        <button className="btn btn-primary">Login</button>
                       </form>
                     </div>
                   </div>
