@@ -69,7 +69,12 @@ function Nav() {
                     onClick={() => setShowModal(true)}
                   >
                     Login!
-                    {showModal && <LoginModal setShowModal={setShowModal} />}
+                    {showModal && (
+                      <LoginModal
+                        showModal={showModal}
+                        setShowModal={setShowModal}
+                      />
+                    )}
                   </button>
                 </>
               )}

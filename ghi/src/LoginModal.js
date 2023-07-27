@@ -5,12 +5,13 @@ import { useEffect } from "react";
 import $ from "jquery";
 
 export default function LoginModal(props) {
-  console.log(props);
+  console.log("SHOW MODAL???", props.showModal);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useToken();
   const { token } = useAuthContext();
   const [loginFailed, setLoginFailed] = useState(false);
+  // const [showModal, setShowModal] = useState(true);
 
   const handleUsernameChange = (e) => {
     const value = e.target.value;
@@ -29,8 +30,14 @@ export default function LoginModal(props) {
         setTimeout(() => {
           if (token) {
             setLoginFailed(false);
+            props.setShowModal(false);
+            // document.getElementsByClassName("modal-backdrop show").remove();
+            // $("#myModal").modal("hide");
+            // props.setShowModal(false);
           } else {
+            // setShowModal(true);
             setLoginFailed(true);
+            // <LoginModal />;
           }
         }, 500);
       })
@@ -42,9 +49,12 @@ export default function LoginModal(props) {
       setLoginFailed(false);
     }
   }, [token]);
+
+  // function close() {
+  // loginFailed ? $("#myModal").modal("hide") : "";
+  // }
   return (
     <>
-      <script src="path/to/jquery.min.js"></script>
       <div onClick={(e) => e.stopPropagation()}>
         <div className="modal" id="myModal">
           <div className="modal-dialog">
@@ -84,7 +94,12 @@ export default function LoginModal(props) {
                           />
                           <label htmlFor="username">Username</label>
                           {loginFailed && (
-                            <span>Incorrect login information</span>
+                            <>
+                              <br />
+                              <span style={{ color: "red" }}>
+                                Incorrect login information
+                              </span>
+                            </>
                           )}
                         </div>
                         <div className="form-floating mb-3">
@@ -100,7 +115,14 @@ export default function LoginModal(props) {
                           />
                           <label htmlFor="password">Password</label>
                         </div>
-                        <button className="btn btn-primary">Login</button>
+                        <button
+                          className="btn btn-primary"
+                          onClick={handleSubmit}
+                          data-dismiss="modal"
+                        >
+                          Login
+                          {/* {<LoginModal /> && showModal} */}
+                        </button>
                       </form>
                     </div>
                   </div>
