@@ -42,14 +42,13 @@ export default function LoginModal() {
   }, [token]);
   return (
     <div>
-      <p>Start editing to see some magic happen :)</p>
       <button
         type="button"
         className="btn btn-primary"
         data-toggle="modal"
         data-target="#myModal"
       >
-        Open modal
+        Login
       </button>
 
       <div className="modal" id="myModal">
@@ -61,12 +60,11 @@ export default function LoginModal() {
                 &times;
               </button>
             </div>
-
             <div className="modal-body">
               <div className="row">
                 <div className="offset-3 col-6">
                   <div className="shadow p-4 mt-4">
-                    <h1>Login</h1>
+                    {/* <h1>Login</h1> */}
                     <form onSubmit={(e) => handleSubmit(e)} id="account-login">
                       <div className="form-floating mb-3">
                         <input

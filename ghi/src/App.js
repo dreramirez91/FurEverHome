@@ -34,8 +34,6 @@ function App() {
           </div>
         </BrowserRouter>
       </AuthProvider>
-      {showModal && <LoginModal />}
-      <button onClick={() => setShowModal(true)}>Hello</button>
     </>
   );
 }

@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
+import LoginModal from "./LoginModal";
 
 function Nav() {
   const { logout } = useToken();
@@ -59,13 +60,7 @@ function Nav() {
                   >
                     Sign up!
                   </NavLink>
-                  <NavLink
-                    className="btn"
-                    style={{ color: "white" }}
-                    to="/login"
-                  >
-                    Login
-                  </NavLink>
+                  <LoginModal />
                 </>
               )}
               {loggedIn && (
