@@ -17,6 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="path/to/jquery.min.js"></script>
+    <script type="text/javascript" src="ghi/src/LoginModal.js"></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -31,6 +32,23 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+    // Function to remove the element when it appears
+    function removeModalBackdrop() {
+      const modalBackdrop = document.querySelector(".modal-backdrop.show");
+      if (modalBackdrop) {
+        modalBackdrop.remove();
+      }
+    }
+
+    // Create a MutationObserver to listen for DOM changes
+    const observer = new MutationObserver(() => {
+      removeModalBackdrop();
+    });
+
+    // Observe the entire document for changes (you can observe specific elements too)
+    observer.observe(document, { childList: true, subtree: true });
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

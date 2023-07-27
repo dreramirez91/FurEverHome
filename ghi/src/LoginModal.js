@@ -31,7 +31,6 @@ export default function LoginModal(props) {
           if (token) {
             setLoginFailed(false);
             props.setShowModal(false);
-            // document.getElementsByClassName("modal-backdrop show").remove();
             // $("#myModal").modal("hide");
             // props.setShowModal(false);
           } else {
