@@ -9,27 +9,34 @@ import "./App.css";
 import DogList from "./ListDogs.js";
 import EditDog from "./EditDog.js";
 import MyDogs from "./MyDogs.js";
+import LoginModal from "./LoginModal.js";
+import { useState } from "react";
 
 function App() {
   const baseUrl = "http://localhost:8000" || process.env.REACT_APP_API_HOST;
+  const [showModal, setShowModal] = useState(false);
 
   return (
-    <AuthProvider baseUrl={baseUrl}>
-      <BrowserRouter>
-        <Nav />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="login" element={<Login />} />
-            <Route path="dogs/:rehomer_id/create" element={<CreateDog />} />
-            <Route path="dogs/:dog_id/edit" element={<EditDog />} />
-            <Route path="dogs" element={<DogList />} />
-            <Route path="dogs/:rehomer_id/mydogs" element={<MyDogs />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </AuthProvider>
+    <>
+      <AuthProvider baseUrl={baseUrl}>
+        <BrowserRouter>
+          <Nav />
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="signup" element={<Signup />} />
+              <Route path="login" element={<Login />} />
+              <Route path="dogs/:rehomer_id/create" element={<CreateDog />} />
+              <Route path="dogs/:dog_id/edit" element={<EditDog />} />
+              <Route path="dogs" element={<DogList />} />
+              <Route path="dogs/:rehomer_id/mydogs" element={<MyDogs />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </AuthProvider>
+      {showModal && <LoginModal />}
+      <button onClick={() => setShowModal(true)}>Hello</button>
+    </>
   );
 }
 
