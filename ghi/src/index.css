@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Berkshire+Swash&family=Handlee&family=Loved+by+the+King&family=Patrick+Hand&family=Solitreo&family=The+Girl+Next+Door&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   margin: 0;
@@ -55,6 +58,14 @@ code {
   background-color: rgba(194, 185, 176, 0.6);
   color: white;
 }
+
+.home-caption {
+  margin-top: 2em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  background-color: rgba(194, 185, 176, 0.6);
+  color: white;
+}
 /*
 #E7717D (PINK)
 #C2CAD0 (BLUEISH SLATE GRAY)
@@ -62,3 +73,9 @@ code {
 #7E685A (BROWN)
 #AFD275 (GREEN)
 */
+
+.available-dogs {
+  display: flex;
+  font-size: x-large;
+  justify-content: center;
+}
