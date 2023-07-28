@@ -6,23 +6,6 @@ import Carousel from "react-bootstrap/Carousel";
 
 function Home() {
   const [dogs, setDogs] = useState([]);
-  const [fetchSuccessful, setFetchSuccessful] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? dogs.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const nextSlide = () => {
-    const isLastSlide = currentIndex === dogs.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const goToSlide = (dogIndex) => {
-    setCurrentIndex(dogIndex);
-  };
 
   const fetchDogs = async () => {
     const url = `${process.env.REACT_APP_API_HOST}/dogs/`;
@@ -39,7 +22,6 @@ function Home() {
       if (response.ok) {
         const data = await response.json();
         setDogs(data.dogs);
-        setFetchSuccessful(true);
         console.log("DOGS --->", dogs);
       }
     } catch (e) {
@@ -62,7 +44,7 @@ function Home() {
       <div className="App home-style">
         <h1
           className="display-1 fw-bold"
-          style={{ textShadow: "4px 4px #1c8cff" }}
+          style={{ textShadow: "4px 4px #1c8cff", fontVariant: "small-caps" }}
         >
           FurEver Home
         </h1>
@@ -72,13 +54,30 @@ function Home() {
           </p>
         </div>
       </div>
+      <div>
+        <h2 className="home-caption available-dogs">
+          Scroll through our adoptable dogs! See "Available Dogs" for more info!
+        </h2>
+      </div>
       <Carousel>
         {dogs?.map((dog) => {
           return (
             <Carousel.Item interval={6000}>
-              <img className="w-100 d-block" src={dog.picture_url} />
+              <img className="carousel w-100 d-block" src={dog.picture_url} />
               <Carousel.Caption>
-                <span style={{ fontSize: "x-large" }}>{dog.name}</span>
+                <span
+                  style={{
+                    fontSize: "x-large",
+                    fontVariant: "small-caps",
+                    backgroundColor: "white",
+                    color: "rgba(120, 112, 104, 0.95)",
+                    paddingLeft: ".5em",
+                    paddingRight: ".5em",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {dog.name}
+                </span>
               </Carousel.Caption>
             </Carousel.Item>
           );
