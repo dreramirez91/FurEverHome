@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 
 function Home() {
   const [dogs, setDogs] = useState([]);
-  const [fetchComplete, setFetchComplete] = useState(false);
   const fetchDogs = async () => {
     const url = `${process.env.REACT_APP_API_HOST}/dogs/`;
     const fetchConfig = {
@@ -19,7 +18,6 @@ function Home() {
       if (response.ok) {
         const data = await response.json();
         setDogs(data.dogs);
-        setFetchComplete(true);
         console.log(dogs);
       }
     } catch (e) {
@@ -52,52 +50,50 @@ function Home() {
           </p>
         </div>
       </div>
-      {fetchComplete && (
-        <div id="demo" className="carousel slide" data-ride="carousel">
-          <div className="carousel-inner" style={{ marginTop: "10em" }}>
-            <div
-              className="carousel-item active"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignContent: "center",
-              }}
-            >
-              <img
-                src="https://www.mirausa.org/wp-content/uploads/2013/11/our-dogs-gallery-icon.jpg"
-                alt="Our dogs"
-                style={{ maxHeight: "300px", maxWidth: "300px" }}
-              />
-            </div>
-            {dogs.map((dog) => {
-              return (
-                <div
-                  className="carousel-item"
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignContent: "center",
-                  }}
-                >
-                  <img
-                    src={dog.picture_url}
-                    alt={dog.name}
-                    style={{
-                      maxHeight: "300px",
-                    }}
-                  />
-                </div>
-              );
-            })}
+      <div id="demo" className="carousel slide" data-ride="carousel">
+        <div className="carousel-inner" style={{ marginTop: "10em" }}>
+          <div
+            className="carousel-item active"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignContent: "center",
+            }}
+          >
+            <img
+              src="https://www.mirausa.org/wp-content/uploads/2013/11/our-dogs-gallery-icon.jpg"
+              alt="Our dogs"
+              style={{ maxHeight: "300px", maxWidth: "300px" }}
+            />
           </div>
-          <a className="carousel-control-prev" to="#demo" data-slide="prev">
-            <span className="carousel-control-prev-icon"></span>
-          </a>
-          <a className="carousel-control-next" href="#demo" data-slide="next">
-            <span className="carousel-control-next-icon"></span>
-          </a>
+          {dogs?.map((dog) => {
+            return (
+              <div
+                className="carousel-item"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignContent: "center",
+                }}
+              >
+                <img
+                  src={dog.picture_url}
+                  alt={dog.name}
+                  style={{
+                    maxHeight: "300px",
+                  }}
+                />
+              </div>
+            );
+          })}
         </div>
-      )}
+        <a className="carousel-control-prev" to="#demo" data-slide="prev">
+          <span className="carousel-control-prev-icon"></span>
+        </a>
+        <a className="carousel-control-next" href="#demo" data-slide="next">
+          <span className="carousel-control-next-icon"></span>
+        </a>
+      </div>
     </>
   );
 }
