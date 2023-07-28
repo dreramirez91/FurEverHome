@@ -2,6 +2,7 @@ import dogBackground from "./assets/dogBackground.mp4";
 import { useState, useEffect } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
+import Carousel from "react-bootstrap/Carousel";
 
 function Home() {
   const [dogs, setDogs] = useState([]);
@@ -71,39 +72,18 @@ function Home() {
           </p>
         </div>
       </div>
-      <div className="max-w-[1400px] h-[780px] w-full py-5 px-5 relative group">
-        <div>
-          <h2 className="home-caption available-dogs">
-            Scroll through our adoptable dogs! See "Available Dogs" for more
-            info!
-          </h2>
-        </div>
-        {fetchSuccessful && (
-          <div
-            style={{
-              backgroundImage: `url(${dogs[currentIndex].picture_url})`,
-            }}
-            className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
-          ></div>
-        )}
-        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-          <BsChevronCompactLeft onClick={prevSlide} size={30} />
-        </div>
-        <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-          <BsChevronCompactRight onClick={nextSlide} size={30} />
-        </div>
-        <div className="flex top-4 justify-center py-2">
-          {dogs?.map((dog, dogIndex) => (
-            <div
-              key={dogIndex}
-              onClick={() => goToSlide(dogIndex)}
-              className="text-2xl cursor-pointer"
-            >
-              <RxDotFilled />
-            </div>
-          ))}
-        </div>
-      </div>
+      <Carousel>
+        {dogs?.map((dog) => {
+          return (
+            <Carousel.Item interval={6000}>
+              <img className="w-100 d-block" src={dog.picture_url} />
+              <Carousel.Caption>
+                <span style={{ fontSize: "x-large" }}>{dog.name}</span>
+              </Carousel.Caption>
+            </Carousel.Item>
+          );
+        })}
+      </Carousel>
     </>
   );
 }
