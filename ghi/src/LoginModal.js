@@ -72,7 +72,7 @@ export default function LoginModal(props) {
                   &times;
                 </button>
               </div>
-              <div className="modal-body">
+              <div className="modal-body" style={{ marginBottom: "1.5em" }}>
                 <div className="row">
                   <div className="offset-3 col-6">
                     <div className="shadow p-4 mt-4">
@@ -126,19 +126,6 @@ export default function LoginModal(props) {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-danger"
-                  data-dismiss="modal"
-                  onClick={() => {
-                    props.setShowModal(false);
-                  }}
-                >
-                  Close
-                </button>
               </div>
             </div>
           </div>

@@ -62,7 +62,7 @@ function Home() {
       <Carousel>
         {dogs?.map((dog) => {
           return (
-            <Carousel.Item interval={6000}>
+            <Carousel.Item key={dog.id} interval={6000}>
               <img className="carousel w-100 d-block" src={dog.picture_url} />
               <Carousel.Caption>
                 <span
