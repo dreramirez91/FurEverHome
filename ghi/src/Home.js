@@ -7,9 +7,9 @@ function Home() {
       <video className="video" src={dogBackground} autoPlay loop muted />
       <h1
         className="display-1 fw-bold"
-        style={{ textShadow: "4px 4px #007bff" }}
+        style={{ textShadow: "4px 4px #007bff", fontVariant: "small-caps" }}
       >
-        FurEver Home
+        FurEver Home !
       </h1>
       <div className="col-lg-5 mx-auto">
         <p className="display-5 lead mb-4" style={{ fontSize: "xx-large" }}>
