@@ -5,7 +5,7 @@ FurEverHome - "Connecting Dogs with Loving Families"
 ## Design
 
 [API design](api-design.md)
-[GHI](fureverhomewireframe.png)
+![GHI](fureverhomewireframe.png)
 
 ## Intended market
 
