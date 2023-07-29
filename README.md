@@ -4,9 +4,9 @@ FurEver Home - "Connecting Dogs with Loving Families"
 
 ## Design
 
-[API design](api-design.md)
+[API design](docs/api-design.md)
 
-[GHI](fureverhomewireframe.png)
+[GHI](docs/fureverhomewireframe.png)
 
 ## Intended market
 
@@ -27,6 +27,6 @@ View their list of dogs and see who is adopted and available.
 
 To fully enjoy this application follow the link below:
 
-<<> Link to the deployed application in its staging environment forthcoming... >>
+<< Link to the deployed application in its staging environment forthcoming... >>
 
 # Enjoy FurEver Home to its fullest!
