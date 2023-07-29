@@ -1,11 +1,12 @@
-### FurEverHome
+### FurEver Home
 
-FurEverHome - "Connecting Dogs with Loving Families"
+FurEver Home - "Connecting Dogs with Loving Families"
 
 ## Design
 
 [API design](api-design.md)
-![GHI](fureverhomewireframe.png)
+
+[GHI](fureverhomewireframe.png)
 
 ## Intended market
 
@@ -28,4 +29,4 @@ To fully enjoy this application follow the link below:
 
 <<> Link to the deployed application in its staging environment forthcoming... >>
 
-# Enjoy FurEverHome to its fullest!
+# Enjoy FurEver Home to its fullest!
