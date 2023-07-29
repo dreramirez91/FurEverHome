@@ -11,7 +11,7 @@ FurEverHome - "Connecting hearts with FurEverHomes"
 ## Design
 
 [API design](api-design.md)
-![GHI](fureverhomewireframe.png)
+[GHI](MVPWireframe.png)
 
 ## Intended market
 
