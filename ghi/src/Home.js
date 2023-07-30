@@ -59,16 +59,19 @@ function Home() {
           Scroll through our adoptable dogs! See "Available Dogs" for more info!
         </h2>
       </div>
-      <Carousel>
+      <Carousel style={{ marginTop: "2em" }}>
         {dogs?.map((dog) => {
           return (
             <Carousel.Item key={dog.id} interval={6000}>
-              <img className="carousel w-100 d-block" src={dog.picture_url} />
-              <Carousel.Caption>
+              <img
+                className="carousel w-50 d-block img-thumbnail"
+                style={{ margin: "auto", height: "520px" }}
+                src={dog.picture_url}
+              />
+              <Carousel.Caption id="vertical-adjust">
                 <span
                   style={{
                     fontSize: "x-large",
-                    fontVariant: "small-caps",
                     backgroundColor: "white",
                     color: "rgba(120, 112, 104, 0.95)",
                     paddingLeft: ".5em",

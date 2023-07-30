@@ -79,3 +79,7 @@ code {
   font-size: x-large;
   justify-content: center;
 }
+
+#vertical-adjust {
+  transform: translateY(1.3em);
+}
