@@ -64,7 +64,6 @@ function DogColumn(props) {
               Edit
             </Link>
             <button
-              type="button"
               onClick={() => deleteDog(dog.id)}
               className="btn btn-danger"
             >

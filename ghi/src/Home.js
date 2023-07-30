@@ -1,7 +1,7 @@
 import dogBackground from "./assets/dogBackground.mp4";
 import { useState, useEffect } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import { RxDotFilled } from "react-icons/rx";
+import { LuDog } from "react-icons/lu";
 import Carousel from "react-bootstrap/Carousel";
 
 function Home() {
@@ -71,7 +71,7 @@ function Home() {
               <Carousel.Caption id="vertical-adjust">
                 <span
                   style={{
-                    fontSize: "x-large",
+                    fontSize: "large",
                     backgroundColor: "white",
                     color: "rgba(120, 112, 104, 0.95)",
                     paddingLeft: ".5em",
@@ -79,7 +79,10 @@ function Home() {
                     fontWeight: "bold",
                   }}
                 >
-                  {dog.name}
+                  {dog.name} |{" "}
+                  {dog.age === 1
+                    ? `${dog.age} year old`
+                    : `${dog.age} years old`}
                 </span>
               </Carousel.Caption>
             </Carousel.Item>
