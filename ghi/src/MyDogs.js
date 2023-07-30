@@ -26,7 +26,7 @@ function DogColumn(props) {
     <div className="col">
       {props.list.map((dog) => {
         return (
-          <div key={dog.id} className="card mb-3 shadow">
+          <div key={dog.id} className="card mb-3 shadow dog-card-img">
             <img
               src={dog.picture_url}
               className="card-img-top image-size img-thumbnail"
@@ -46,7 +46,7 @@ function DogColumn(props) {
               </p>
               <p className="card-text">To adopt email: {dog.email}</p>
             </div>
-            <div className="card-footer">
+            <div className="card-footer square-border">
               {" "}
               Date Posted: {new Date(dog.date_posted).toLocaleDateString()}
             </div>

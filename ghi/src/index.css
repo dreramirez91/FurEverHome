@@ -94,3 +94,11 @@ code {
 #footer-text {
   color: blue;
 }
+
+.dog-card-img {
+  width: 385px;
+}
+
+.square-border {
+  border-radius: 0px;
+}
