@@ -29,7 +29,7 @@ function DogColumn(props) {
           <div key={dog.id} className="card mb-3 shadow">
             <img
               src={dog.picture_url}
-              className="card-img-top image-size"
+              className="card-img-top image-size img-thumbnail"
               alt=""
             />
             <div className="card-body">

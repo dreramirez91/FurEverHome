@@ -5,10 +5,14 @@ function DogColumn(props) {
     <div className="col">
       {props.list.map((dog) => {
         return (
-          <div key={dog.id} className="card mb-3 shadow">
+          <div
+            key={dog.id}
+            className="card mb-3 shadow"
+            style={{ width: "385px" }}
+          >
             <img
               src={dog.picture_url}
-              className="card-img-top image-size"
+              className="card-img-top image-size img-thumbnail"
               alt=""
             />
             <div className="card-body">

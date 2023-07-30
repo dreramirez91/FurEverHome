@@ -88,6 +88,7 @@ code {
 .image-size {
   height: 267px;
   width: 385px;
+  border-radius: 0px;
 }
 
 #footer-text {
