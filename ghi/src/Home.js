@@ -63,7 +63,19 @@ function Home() {
       </div>
       <div>
         <h2 className="home-caption available-dogs">
-          Scroll through our adoptable dogs! See "Available Dogs" for more info!
+          Scroll through our adoptable dogs! See{" "}
+          <Link
+            style={{
+              marginLeft: "0.3em",
+              marginRight: "0.3em",
+              color: "#1c8cff",
+            }}
+            to="/dogs"
+          >
+            Available Dogs
+          </Link>
+          {"  "}
+          for more info!
         </h2>
       </div>
       <Carousel style={{ marginTop: "1.2em" }}>
@@ -97,11 +109,13 @@ function Home() {
         })}
       </Carousel>
       <footer className="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
-        <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div
+          className="w-full max-w-screen-xl mx-auto p-4 md:py-8"
+          style={{ marginTop: "10em" }}
+        >
           <div className="sm:flex sm:items-center sm:justify-between">
             <Link to="#" className="flex items-center mb-4 sm:mb-0">
               <LuDog style={{ marginRight: "0.5em" }} />
-
               <span className="self-center text-2xl font-semibold whitespace-nowrap">
                 {" "}
                 FurEver Home
@@ -114,26 +128,29 @@ function Home() {
                 </Link>
               </li>
               <li>
-                <Link to="#" class="mr-4 hover:underline md:mr-6">
+                <Link to="#" className="mr-4 hover:underline md:mr-6">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="#" class="mr-4 hover:underline md:mr-6 ">
+                <Link to="#" className="mr-4 hover:underline md:mr-6 ">
                   Licensing
                 </Link>
               </li>
               <li>
-                <Link to="#" class="hover:underline">
+                <Link to="#" className="hover:underline">
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
-          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <hr
+            className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
+            style={{ marginTop: "0px", marginBottom: "1em" }}
+          />
+          <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
-            <Link to="https://flowbite.com/" class="hover:underline">
+            <Link to="#" className="hover:underline">
               FurEver Home™
             </Link>
             . All Rights Reserved.

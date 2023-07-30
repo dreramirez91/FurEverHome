@@ -42,7 +42,10 @@ function Nav() {
   }, [token]);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav
+      className="navbar navbar-expand-lg navbar-dark bg-primary"
+      style={{ borderRadius: "0px" }}
+    >
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           Home
