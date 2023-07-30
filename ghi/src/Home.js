@@ -44,7 +44,11 @@ function Home() {
       <div className="App home-style">
         <h1
           className="display-1 fw-bold"
-          style={{ textShadow: "4px 4px #1c8cff", fontVariant: "small-caps" }}
+          style={{
+            textShadow: "4px 4px #1c8cff",
+            fontVariant: "small-caps",
+            textDecoration: "underline 4px",
+          }}
         >
           FurEver Home
         </h1>
