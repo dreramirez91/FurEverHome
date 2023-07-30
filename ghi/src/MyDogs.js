@@ -81,6 +81,13 @@ function DogColumn(props) {
 }
 
 const MyDogs = () => {
+  useEffect(() => {
+    document.body.classList.add("list-dogs");
+    return () => {
+      document.body.classList.remove("list-dogs");
+    };
+  });
+
   const [dogColumns, setDogColumns] = useState([[], [], []]);
 
   const fetchDogs = async () => {

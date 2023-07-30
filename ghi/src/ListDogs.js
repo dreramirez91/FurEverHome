@@ -37,8 +37,13 @@ function DogColumn(props) {
 }
 
 const DogList = (props) => {
+  useEffect(() => {
+    document.body.classList.add("list-dogs");
+    return () => {
+      document.body.classList.remove("list-dogs");
+    };
+  }, []);
   const [dogColumns, setDogColumns] = useState([[], [], []]);
-
   const fetchDogs = async () => {
     const url = "http://localhost:8000/dogs/";
 
@@ -70,7 +75,7 @@ const DogList = (props) => {
   }, []);
 
   return (
-    <div className="list-dogs">
+    <div style={{ backgroundImage: "" }}>
       <div className="px-4 py-5 my-5 mt-0 text-center bg-primary">
         <img
           className="bg-white rounded shadow d-block mx-auto mb-4"

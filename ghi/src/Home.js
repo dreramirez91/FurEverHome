@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { LuDog } from "react-icons/lu";
 import Carousel from "react-bootstrap/Carousel";
 import { Link } from "react-router-dom";
-import styles from "./home.module.css";
 
 function Home() {
   const [dogs, setDogs] = useState([]);

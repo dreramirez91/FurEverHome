@@ -5,6 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 function Signup() {
+  useEffect(() => {
+    document.body.classList.add("list-dogs");
+    return () => {
+      document.body.classList.remove("list-dogs");
+    };
+  });
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -76,7 +82,7 @@ function Signup() {
     <>
       <div className="row">
         <div className="offset-3 col-6">
-          <div className="shadow p-4 mt-4">
+          <div className="shadow p-4 mt-4" style={{ backgroundColor: "white" }}>
             <h1>Sign Up Now</h1>
             <form onSubmit={handleSubmit} id="account-signup">
               <div className="form-floating mb-3">
