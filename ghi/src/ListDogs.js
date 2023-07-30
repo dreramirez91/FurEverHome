@@ -1,12 +1,17 @@
 import { React, useState, useEffect } from "react";
+import cornfield from "./assets/cornfield.jpeg";
 
 function DogColumn(props) {
   return (
     <div className="col">
       {props.list.map((dog) => {
         return (
-          <div key={dog.id} className="card mb-3 shadow">
-            <img src={dog.picture_url} className="card-img-top" alt="" />
+          <div key={dog.id} className="card mb-3 shadow dog-card-img">
+            <img
+              src={dog.picture_url}
+              className="card-img-top image-size img-thumbnail"
+              alt=""
+            />
             <div className="card-body">
               <h5 className="card-title">{dog.name}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{dog.breed}</h6>
@@ -65,17 +70,20 @@ const DogList = (props) => {
   }, []);
 
   return (
-    <>
-      <div className="px-4 py-5 my-5 mt-0 text-center bg-info">
+    <div className="list-dogs">
+      <div className="px-4 py-5 my-5 mt-0 text-center bg-primary">
         <img
           className="bg-white rounded shadow d-block mx-auto mb-4"
           src=""
           alt=""
           width="600"
         />
-        <h1 className="display-5 fw-bold">Available Dogs</h1>
+        {/* <h1 className="display-5 fw-bold">Available Dogs</h1> */}
         <div className="col-lg-6 mx-auto">
-          <p className="lead mb-4">
+          <p
+            className="lead mb-4"
+            style={{ color: "white", fontSize: "x-large" }}
+          >
             If you are interested in adopting one of the dogs below please email
             the owner directly.
           </p>
@@ -88,7 +96,7 @@ const DogList = (props) => {
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

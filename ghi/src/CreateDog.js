@@ -101,6 +101,7 @@ function CreateDog() {
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
             <h1>Create Dog</h1>
+            <br />
             <form onSubmit={handleSubmit} id="create-dog-form">
               <div className="form-floating mb-3">
                 <input

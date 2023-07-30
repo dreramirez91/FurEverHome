@@ -73,7 +73,7 @@ function EditDog() {
     const editDogResponse = await fetch(editDogUrl, fetchConfig);
     if (editDogResponse.ok) {
       const editDog = await editDogResponse.json();
-      navigate(`/dogs/${rehomerId}/mydogs`, {replace: false})
+      navigate(`/dogs/${rehomerId}/mydogs`, { replace: false });
 
       setAge("");
       setPictureUrl("");
@@ -92,6 +92,7 @@ function EditDog() {
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
             <h1>Edit Dog</h1>
+            <br />
             <form onSubmit={handleSubmit} id="edit-dog-form">
               <div className="form-floating mb-3">
                 <input

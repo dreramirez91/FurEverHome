@@ -26,8 +26,12 @@ function DogColumn(props) {
     <div className="col">
       {props.list.map((dog) => {
         return (
-          <div key={dog.id} className="card mb-3 shadow">
-            <img src={dog.picture_url} className="card-img-top" alt="" />
+          <div key={dog.id} className="card mb-3 shadow dog-card-img">
+            <img
+              src={dog.picture_url}
+              className="card-img-top image-size img-thumbnail"
+              alt=""
+            />
             <div className="card-body">
               <h5 className="card-title">{dog.name}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{dog.breed}</h6>
@@ -42,7 +46,7 @@ function DogColumn(props) {
               </p>
               <p className="card-text">To adopt email: {dog.email}</p>
             </div>
-            <div className="card-footer">
+            <div className="card-footer square-border">
               {" "}
               Date Posted: {new Date(dog.date_posted).toLocaleDateString()}
             </div>
@@ -64,7 +68,6 @@ function DogColumn(props) {
               Edit
             </Link>
             <button
-              type="button"
               onClick={() => deleteDog(dog.id)}
               className="btn btn-danger"
             >
@@ -119,16 +122,21 @@ const MyDogs = () => {
 
   return (
     <>
-      <div className="px-4 py-5 my-5 mt-0 text-center bg-info">
+      <div className="px-4 py-5 my-5 mt-0 text-center bg-primary">
         <img
           className="bg-white rounded shadow d-block mx-auto mb-4"
           src=""
           alt=""
           width="600"
         />
-        <h1 className="display-5 fw-bold">My Dogs</h1>
+        {/* <h1 className="display-5 fw-bold">My Dogs</h1> */}
         <div className="col-lg-6 mx-auto">
-          <p className="lead mb-4">A list of your beloved pets.</p>
+          <p
+            className="lead mb-4"
+            style={{ color: "white", fontSize: "larger" }}
+          >
+            A list of your beloved pets.
+          </p>
         </div>
       </div>
       <div className="container">

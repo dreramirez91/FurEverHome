@@ -23,7 +23,8 @@ function App() {
               <Route path="signup" element={<Signup />} />
               <Route path="dogs/:rehomer_id/create" element={<CreateDog />} />
               <Route path="dogs/:dog_id/edit" element={<EditDog />} />
-              <Route path="dogs" element={<DogList />} />
+              <Route path="dogs" element={<DogList />}></Route>
+              />
               <Route path="dogs/:rehomer_id/mydogs" element={<MyDogs />} />
             </Routes>
           </div>

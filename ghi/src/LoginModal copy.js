@@ -59,7 +59,7 @@ export default function LoginModal(props) {
         <div className="modal" id="myModal">
           <div className="modal-dialog">
             <div className="modal-content">
-              <div className="modal-header" style={{ borderRadius: "0px" }}>
+              <div className="modal-header">
                 <h4 className="modal-title">Login</h4>
                 <button
                   type="button"
