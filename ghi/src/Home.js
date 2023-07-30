@@ -48,9 +48,9 @@ function Home() {
           style={{
             textShadow: "4px 4px #1c8cff",
             fontVariant: "small-caps",
+            fontStyle: "italic",
 
             // textDecoration: "underline 5px",
-            fontWeight: "bold",
           }}
         >
           FurEver Home
