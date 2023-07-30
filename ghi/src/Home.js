@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { LuDog } from "react-icons/lu";
 import Carousel from "react-bootstrap/Carousel";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [dogs, setDogs] = useState([]);
@@ -43,17 +44,19 @@ function Home() {
       <video className="video" src={dogBackground} autoPlay loop muted />
       <div className="App home-style">
         <h1
-          className="display-1 fw-bold"
+          className="display-1"
           style={{
             textShadow: "4px 4px #1c8cff",
             fontVariant: "small-caps",
-            textDecoration: "underline 4px",
+
+            // textDecoration: "underline 5px",
+            fontWeight: "bold",
           }}
         >
           FurEver Home
         </h1>
-        <div className="col-lg-5 mx-auto">
-          <p className="display-5 lead mb-4" style={{ fontSize: "xx-large" }}>
+        <div className="mx-auto">
+          <p className="display-5 lead" style={{ fontSize: "xx-large" }}>
             "Connecting Dogs with Loving Families"
           </p>
         </div>
@@ -63,13 +66,13 @@ function Home() {
           Scroll through our adoptable dogs! See "Available Dogs" for more info!
         </h2>
       </div>
-      <Carousel style={{ marginTop: "2em" }}>
+      <Carousel style={{ marginTop: "1.2em" }}>
         {dogs?.map((dog) => {
           return (
             <Carousel.Item key={dog.id} interval={6000}>
               <img
                 className="carousel w-50 d-block img-thumbnail"
-                style={{ margin: "auto", height: "520px" }}
+                style={{ margin: "auto", height: "500px" }}
                 src={dog.picture_url}
               />
               <Carousel.Caption id="vertical-adjust">
@@ -93,6 +96,50 @@ function Home() {
           );
         })}
       </Carousel>
+      <footer className="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
+        <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+          <div className="sm:flex sm:items-center sm:justify-between">
+            <Link to="#" className="flex items-center mb-4 sm:mb-0">
+              <LuDog style={{ marginRight: "0.5em" }} />
+
+              <span className="self-center text-2xl font-semibold whitespace-nowrap">
+                {" "}
+                FurEver Home
+              </span>
+            </Link>
+            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+              <li>
+                <Link to="#" className="mr-4 hover:underline md:mr-6 ">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="#" class="mr-4 hover:underline md:mr-6">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="#" class="mr-4 hover:underline md:mr-6 ">
+                  Licensing
+                </Link>
+              </li>
+              <li>
+                <Link to="#" class="hover:underline">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+            © 2023{" "}
+            <Link to="https://flowbite.com/" class="hover:underline">
+              FurEver Home™
+            </Link>
+            . All Rights Reserved.
+          </span>
+        </div>
+      </footer>
     </>
   );
 }

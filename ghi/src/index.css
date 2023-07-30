@@ -88,3 +88,7 @@ code {
   height: 267px;
   width: 385px;
 }
+
+#footer-text {
+  color: blue;
+}

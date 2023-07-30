@@ -27,7 +27,11 @@ function DogColumn(props) {
       {props.list.map((dog) => {
         return (
           <div key={dog.id} className="card mb-3 shadow">
-            <img src={dog.picture_url} className="card-img-top" alt="" />
+            <img
+              src={dog.picture_url}
+              className="card-img-top image-size"
+              alt=""
+            />
             <div className="card-body">
               <h5 className="card-title">{dog.name}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{dog.breed}</h6>

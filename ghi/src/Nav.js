@@ -3,6 +3,7 @@ import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 import { useState, useEffect } from "react";
 import LoginModal from "./LoginModal";
+import { LuDog } from "react-icons/lu";
 
 function Nav() {
   const { logout } = useToken();
@@ -63,10 +64,11 @@ function Nav() {
                   </NavLink>
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn"
                     data-toggle="modal"
                     data-target="#myModal"
                     onClick={() => setShowModal(true)}
+                    style={{ color: "white" }}
                   >
                     Login!
                     {showModal && (
