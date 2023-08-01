@@ -1,4 +1,4 @@
-### FurEver Home
+# FurEver Home
 
 FurEver Home - "Connecting Dogs with Loving Families"
 
