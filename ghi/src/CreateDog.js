@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 function CreateDog() {
+  useEffect(() => {
+    document.body.classList.add("list-dogs");
+    return () => {
+      document.body.classList.remove("list-dogs");
+    };
+  });
   let { rehomerId } = useParams();
   let navigate = useNavigate();
   const [name, setName] = useState("");
@@ -99,7 +105,10 @@ function CreateDog() {
     <>
       <div className="row">
         <div className="offset-3 col-6">
-          <div className="shadow p-4 mt-4">
+          <div
+            className="shadow p-4 mt-4 "
+            style={{ backgroundColor: "white" }}
+          >
             <h1>List Your Dog</h1>
             <br />
             <form onSubmit={handleSubmit} id="create-dog-form">

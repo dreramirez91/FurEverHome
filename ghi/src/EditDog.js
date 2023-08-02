@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 function EditDog() {
+  useEffect(() => {
+    document.body.classList.add("list-dogs");
+    return () => {
+      document.body.classList.remove("list-dogs");
+    };
+  });
+
   let { state } = useLocation();
   let { dog_id } = useParams();
   let navigate = useNavigate();
@@ -90,7 +97,7 @@ function EditDog() {
     <>
       <div className="row">
         <div className="offset-3 col-6">
-          <div className="shadow p-4 mt-4">
+          <div className="shadow p-4 mt-4" style={{ backgroundColor: "white" }}>
             <h1>Edit Dog</h1>
             <br />
             <form onSubmit={handleSubmit} id="edit-dog-form">

@@ -17,3 +17,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# Home route allows for regular health checks to make sure app is working
+@app.get("/")
+def home():
+    return True
