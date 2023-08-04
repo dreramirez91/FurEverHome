@@ -60,23 +60,25 @@ function Home() {
           </p>
         </div>
       </div>
-      <div>
-        <h2 className="home-caption available-dogs">
-          Scroll through our adoptable dogs! See{" "}
-          <Link
-            style={{
-              marginLeft: "0.3em",
-              marginRight: "0.3em",
-              color: "#1c8cff",
-            }}
-            to="/dogs"
-          >
-            Available Dogs
-          </Link>
-          {"  "}
-          for more info!
-        </h2>
-      </div>
+      {dogs && (
+        <div>
+          <h2 className="home-caption available-dogs">
+            Scroll through our adoptable dogs! See{" "}
+            <Link
+              style={{
+                marginLeft: "0.3em",
+                marginRight: "0.3em",
+                color: "#1c8cff",
+              }}
+              to="/dogs"
+            >
+              Available Dogs
+            </Link>
+            {"  "}
+            for more info!
+          </h2>
+        </div>
+      )}
       <Carousel style={{ marginTop: "1.2em" }}>
         {dogs?.map((dog) => {
           return (
