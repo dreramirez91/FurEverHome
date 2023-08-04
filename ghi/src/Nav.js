@@ -11,7 +11,7 @@ function Nav() {
   const { fetchWithCookie } = useToken();
   const [rehomerId, setRehomerId] = useState(null);
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(null);
 
   let loggedIn = null;
   if (token) {
@@ -41,6 +41,15 @@ function Nav() {
     fetchData();
   }, [token]);
 
+  const handleLoginClick = () => {
+    setShowModal(true);
+    console.log(showModal);
+  };
+
+  useEffect(() => {
+    console.log("It is being changed by child component");
+  }, [showModal]);
+
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark bg-primary"
@@ -68,19 +77,18 @@ function Nav() {
                   <button
                     type="button"
                     className="btn"
-                    data-toggle="modal"
-                    data-target="#myModal"
-                    onClick={() => setShowModal(true)}
+                    onClick={handleLoginClick}
                     style={{ color: "white" }}
                   >
                     Login!
-                    {showModal && (
-                      <LoginModal
-                        showModal={showModal}
-                        setShowModal={setShowModal}
-                      />
-                    )}
                   </button>
+                  {showModal && (
+                    <LoginModal
+                      showModal={showModal}
+                      setShowModal={setShowModal}
+                      onHide={() => setShowModal(false)}
+                    />
+                  )}
                 </>
               )}
               {loggedIn && (

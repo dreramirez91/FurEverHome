@@ -8,15 +8,18 @@ import "./App.css";
 import DogList from "./ListDogs.js";
 import EditDog from "./EditDog.js";
 import MyDogs from "./MyDogs.js";
+import LoginModal from "./LoginModal.js";
+import { useState } from "react";
 
 function App() {
   const baseUrl = "http://localhost:8000" || process.env.REACT_APP_API_HOST;
-
+  const [showModal, setShowModal] = useState(true);
   return (
     <>
       <AuthProvider baseUrl={baseUrl}>
         <BrowserRouter>
           <Nav />
+          <LoginModal />
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
