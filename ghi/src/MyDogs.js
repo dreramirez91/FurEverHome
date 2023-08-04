@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ConfirmButton from "./ConfirmButton";
 
 function DogColumn(props) {
   async function deleteDog(dogId) {
@@ -67,12 +68,7 @@ function DogColumn(props) {
             >
               Edit
             </Link>
-            <button
-              onClick={() => deleteDog(dog.id)}
-              className="btn btn-danger"
-            >
-              Delete
-            </button>
+            <ConfirmButton />
           </div>
         );
       })}
