@@ -19,7 +19,6 @@ code {
 
 * {
   font-family: "Handlee", cursive;
-  border-radius: 25px;
 }
 
 .div-video {
@@ -99,8 +98,8 @@ code {
   width: 385px;
 }
 
-.square-border {
-  border-radius: 0px;
+.round-border {
+  border-radius: 25px;
 }
 
 .list-dogs {
