@@ -1,5 +1,6 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, createContext } from "react";
 import { Link } from "react-router-dom";
+import ConfirmButton from "./ConfirmButton";
 
 function DogColumn(props) {
   async function deleteDog(dogId) {
@@ -67,12 +68,11 @@ function DogColumn(props) {
             >
               Edit
             </Link>
-            <button
-              onClick={() => deleteDog(dog.id)}
-              className="btn btn-danger"
-            >
-              Delete
-            </button>
+            <ConfirmButton
+              delete={() => {
+                deleteDog(dog.id);
+              }}
+            />
           </div>
         );
       })}
@@ -128,7 +128,7 @@ const MyDogs = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <div className="px-4 py-5 my-5 mt-0 text-center bg-primary">
         <img
           className="bg-white rounded shadow d-block mx-auto mb-4"
@@ -155,7 +155,7 @@ const MyDogs = () => {
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
