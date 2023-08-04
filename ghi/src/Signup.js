@@ -98,7 +98,9 @@ function Signup() {
                 />
                 <label htmlFor="username"></label>
                 {loginFailed && (
-                  <span>That username has already been taken.</span>
+                  <div className="alert alert-danger">
+                    That username has already been taken.
+                  </div>
                 )}
               </div>
               <div className="form-floating mb-3">

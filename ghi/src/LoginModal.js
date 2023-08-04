@@ -96,9 +96,9 @@ export default function LoginModal(props) {
                           {loginFailed && (
                             <>
                               <br />
-                              <span style={{ color: "red" }}>
+                              <div className="alert alert-danger">
                                 Incorrect login information
-                              </span>
+                              </div>
                             </>
                           )}
                         </div>
