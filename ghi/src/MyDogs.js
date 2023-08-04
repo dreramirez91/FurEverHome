@@ -47,7 +47,7 @@ function DogColumn(props) {
               </p>
               <p className="card-text">To adopt email: {dog.email}</p>
             </div>
-            <div className="card-footer square-border">
+            <div className="card-footer">
               {" "}
               Date Posted: {new Date(dog.date_posted).toLocaleDateString()}
             </div>

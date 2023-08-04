@@ -48,8 +48,6 @@ function Home() {
             textShadow: "4px 4px #1c8cff",
             fontVariant: "small-caps",
             fontStyle: "italic",
-
-            // textDecoration: "underline 5px",
           }}
         >
           FurEver Home
@@ -60,55 +58,58 @@ function Home() {
           </p>
         </div>
       </div>
-      {dogs && (
-        <div>
-          <h2 className="home-caption available-dogs">
-            Scroll through our adoptable dogs! See{" "}
-            <Link
-              style={{
-                marginLeft: "0.3em",
-                marginRight: "0.3em",
-                color: "#1c8cff",
-              }}
-              to="/dogs"
-            >
-              Available Dogs
-            </Link>
-            {"  "}
-            for more info!
-          </h2>
-        </div>
-      )}
-      <Carousel style={{ marginTop: "1.2em" }}>
-        {dogs?.map((dog) => {
-          return (
-            <Carousel.Item key={dog.id} interval={6000}>
-              <img
-                className="carousel w-50 d-block img-thumbnail"
-                style={{ margin: "auto", height: "500px" }}
-                src={dog.picture_url}
-              />
-              <Carousel.Caption id="vertical-adjust">
-                <span
-                  style={{
-                    fontSize: "large",
-                    backgroundColor: "white",
-                    color: "rgba(120, 112, 104, 0.95)",
-                    paddingLeft: ".5em",
-                    paddingRight: ".5em",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {dog.name} |{" "}
-                  {dog.age === 1
-                    ? `${dog.age} year old`
-                    : `${dog.age} years old`}
-                </span>
-              </Carousel.Caption>
-            </Carousel.Item>
-          );
-        })}
-      </Carousel>
+      <div style={{ marginTop: "em" }}>
+        {dogs && (
+          <div>
+            <h2 className="home-caption available-dogs">
+              Scroll through our adoptable dogs! See{" "}
+              <Link
+                style={{
+                  marginLeft: "0.3em",
+                  marginRight: "0.3em",
+                  color: "#1c8cff",
+                }}
+                to="/dogs"
+              >
+                Available Dogs
+              </Link>
+              {"  "}
+              for more info!
+            </h2>
+          </div>
+        )}
+
+        <Carousel style={{ marginTop: "1.5em" }}>
+          {dogs?.map((dog) => {
+            return (
+              <Carousel.Item key={dog.id} interval={6000}>
+                <img
+                  className="carousel w-50 d-block img-thumbnail"
+                  style={{ margin: "auto", height: "500px" }}
+                  src={dog.picture_url}
+                />
+                <Carousel.Caption id="vertical-adjust">
+                  <span
+                    style={{
+                      fontSize: "large",
+                      backgroundColor: "white",
+                      color: "rgba(120, 112, 104, 0.95)",
+                      paddingLeft: ".5em",
+                      paddingRight: ".5em",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {dog.name} |{" "}
+                    {dog.age === 1
+                      ? `${dog.age} year old`
+                      : `${dog.age} years old`}
+                  </span>
+                </Carousel.Caption>
+              </Carousel.Item>
+            );
+          })}
+        </Carousel>
+      </div>
       <footer
         className="bg-white rounded-lg shadow dark:bg-gray-900 m-4"
         id="footer"
