@@ -1,14 +1,17 @@
-import React, { useState } from "react";
-import { confirm } from "react-bootstrap-confirmation";
+import React, { useContext } from "react";
 
-export default function ConfirmButton() {
+export default function ConfirmButton(props) {
   const display = async () => {
-    const result = await confirm("Are you sure you want to remove this dog?");
-    console.log("True if confirmed, false otherwise:", result);
+    const result = await window.confirm(
+      "Are you sure you want to remove this dog?"
+    );
+    if (result) {
+      props.delete();
+    }
   };
   return (
-    <button type="button" className="btn btn-danger" onClick={display}>
+    <div className="btn btn-danger" onClick={display}>
       Delete
-    </button>
+    </div>
   );
 }
