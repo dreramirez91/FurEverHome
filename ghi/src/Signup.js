@@ -83,8 +83,12 @@ function Signup() {
       <div className="row">
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4" style={{ backgroundColor: "white" }}>
-            <h1>Sign Up Now</h1>
-            <form onSubmit={handleSubmit} id="account-signup">
+            <h1 className="center-align">Sign Up Now</h1>
+            <form
+              onSubmit={handleSubmit}
+              id="account-signup"
+              style={{ marginBottom: "2em" }}
+            >
               <div className="form-floating mb-3">
                 <input
                   onChange={handleUsernameChange}
@@ -129,7 +133,7 @@ function Signup() {
                 />
                 <label htmlFor="first_name"></label>
               </div>
-              <div className="form-floating mb-3">
+              <div className="form-floating mb-2">
                 <input
                   onChange={handleLastNameChange}
                   value={lastName}
@@ -142,7 +146,7 @@ function Signup() {
                 />
                 <label htmlFor="last_name"></label>
               </div>
-              <div className="form-check mb-3">
+              <div className="form-check mb-4">
                 <input
                   onChange={handleTermsChange}
                   checked={terms}
@@ -156,7 +160,7 @@ function Signup() {
                   I agree to the Terms and Conditions
                 </label>
               </div>
-              <button className="btn btn-primary">Signup</button>
+              <button className="btn btn-primary button-align">Signup</button>
             </form>
           </div>
         </div>
