@@ -10,6 +10,7 @@ import EditDog from "./EditDog.js";
 import MyDogs from "./MyDogs.js";
 import LoginModal from "./LoginModal.js";
 import { useState } from "react";
+import Footer from "./Footer.js";
 
 function App() {
   const baseUrl = "http://localhost:8000" || process.env.REACT_APP_API_HOST;
