@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="w-full max-w-screen-xl mx-auto md:py-5">
         <div className="sm:flex sm:items-center sm:justify-between">
           <Link to="#" className="flex items-center mb-4 sm:mb-0">
-            <LuDog style={{ marginRight: "0.5em" }} />
+            {/* <LuDog style={{ marginRight: "0.5em" }} /> */}
             <span className="self-center text-2xl font-semibold whitespace-nowrap">
               {" "}
               FurEver Home
