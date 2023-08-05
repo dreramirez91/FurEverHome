@@ -42,7 +42,7 @@ function Home() {
       <video className="video" src={dogBackground} autoPlay loop muted />
       <div className="App home-style">
         <h1
-          className="display-1"
+          className="display-1 px-0"
           style={{
             textShadow: "4px 4px #1c8cff",
             fontVariant: "small-caps",
