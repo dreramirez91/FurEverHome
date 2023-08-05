@@ -111,6 +111,7 @@ function Nav() {
                     onClick={() => {
                       logout();
                       goHome();
+                      setShowModal(false);
                     }}
                     className="btn"
                     style={{ color: "white" }}

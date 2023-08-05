@@ -159,8 +159,13 @@ function Signup() {
                 <label htmlFor="terms" className="form-check-label">
                   I agree to the Terms and Conditions
                 </label>
+                <button
+                  className="btn btn-primary button-align"
+                  id="sign-up-button"
+                >
+                  Signup
+                </button>
               </div>
-              <button className="btn btn-primary button-align">Signup</button>
             </form>
           </div>
         </div>

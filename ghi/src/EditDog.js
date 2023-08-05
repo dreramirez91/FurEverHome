@@ -98,8 +98,8 @@ function EditDog() {
       <div className="row">
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4" style={{ backgroundColor: "white" }}>
-            <h1>Edit Dog</h1>
-            <br />
+            <h1 className="center-align">Edit Dog</h1>
+
             <form onSubmit={handleSubmit} id="edit-dog-form">
               <div className="form-floating mb-3">
                 <input
@@ -112,7 +112,7 @@ function EditDog() {
                   name="age"
                   className="form-control"
                 />
-                <label htmlFor="age">Age</label>
+                <label htmlFor="age"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -125,7 +125,7 @@ function EditDog() {
                   name="picture_url"
                   className="form-control"
                 />
-                <label htmlFor="picture_url">Picture URL</label>
+                <label htmlFor="picture_url"></label>
               </div>
               <div className="form-floating mb-3">
                 <textarea
@@ -136,7 +136,7 @@ function EditDog() {
                   name="reason"
                   className="form-control"
                 ></textarea>
-                <label htmlFor="reason">Reason</label>
+                <label htmlFor="reason"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -148,7 +148,7 @@ function EditDog() {
                   name="address_city"
                   className="form-control"
                 />
-                <label htmlFor="address_city">Address City</label>
+                <label htmlFor="address_city"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -160,7 +160,7 @@ function EditDog() {
                   name="address_state"
                   className="form-control"
                 />
-                <label htmlFor="address_state">Address State</label>
+                <label htmlFor="address_state"></label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -172,7 +172,7 @@ function EditDog() {
                   name="email"
                   className="form-control"
                 />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email"></label>
               </div>
               <div className="form-check mb-3">
                 <input
@@ -183,7 +183,7 @@ function EditDog() {
                   className="form-check-input"
                 />
                 <label htmlFor="spayed_neutered" className="form-check-label">
-                  Spayed/Neutered
+                  Spayed/Neutered?
                 </label>
               </div>
               <div className="form-check mb-3">
@@ -195,10 +195,12 @@ function EditDog() {
                   className="form-check-input"
                 />
                 <label htmlFor="adopted" className="form-check-label">
-                  Adopted
+                  Adopted?
                 </label>
+                <button className="btn btn-primary button-align">
+                  Edit Dog
+                </button>
               </div>
-              <button className="btn btn-primary">Edit Dog</button>
             </form>
           </div>
         </div>

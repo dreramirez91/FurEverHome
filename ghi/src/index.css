@@ -129,6 +129,7 @@ code {
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
+  margin-top: 2em;
 }
 
 .center-align {
@@ -136,4 +137,8 @@ code {
   justify-content: center;
   align-items: center;
   margin-bottom: 1em;
+}
+
+#sign-up-button {
+  margin-top: 3em;
 }

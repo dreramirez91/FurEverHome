@@ -140,7 +140,7 @@ const MyDogs = () => {
         <div className="col-lg-6 mx-auto">
           <p
             className="lead mb-4"
-            style={{ color: "white", fontSize: "larger" }}
+            style={{ color: "white", fontSize: "x-large" }}
           >
             A list of your beloved pets.
           </p>
