@@ -53,7 +53,7 @@ function DogColumn(props) {
             </div>
             <Link
               to={`/dogs/${dog.id}/edit`}
-              className="btn btn-info"
+              className="btn btn-info square-border"
               state={{
                 age: dog.age,
                 picture_url: dog.picture_url,

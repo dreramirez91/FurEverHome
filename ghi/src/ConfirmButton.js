@@ -10,7 +10,7 @@ export default function ConfirmButton(props) {
     }
   };
   return (
-    <div className="btn btn-danger" onClick={display}>
+    <div className="btn btn-danger square-border" onClick={display}>
       Delete
     </div>
   );
