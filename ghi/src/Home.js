@@ -40,9 +40,9 @@ function Home() {
     <>
       <div className="overlay div-video"></div>
       <video className="video" src={dogBackground} autoPlay loop muted />
-      <div className="App home-style">
+      <div className="App home">
         <h1
-          className="display-1 px-0"
+          className="display-1"
           style={{
             textShadow: "4px 4px #1c8cff",
             fontVariant: "small-caps",
@@ -51,7 +51,7 @@ function Home() {
         >
           FurEver Home
         </h1>
-        <div className="mx-auto">
+        <div>
           <p className="display-5 lead" style={{ fontSize: "xx-large" }}>
             "Connecting Dogs with Loving Families"
           </p>
