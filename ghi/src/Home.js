@@ -45,8 +45,6 @@ function Home() {
           className="display-1"
           style={{
             textShadow: "4px 4px #1c8cff",
-            fontVariant: "small-caps",
-            fontStyle: "italic",
           }}
         >
           FurEver Home
