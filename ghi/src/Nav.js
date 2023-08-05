@@ -105,7 +105,7 @@ function Nav() {
                     style={{ color: "white" }}
                     to={`/dogs/${rehomerId}/create`}
                   >
-                    Add a Dog
+                    List Your Dog
                   </NavLink>
                   <button
                     onClick={() => {

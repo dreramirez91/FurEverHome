@@ -109,7 +109,9 @@ function CreateDog() {
             className="shadow p-4 mt-4 "
             style={{ backgroundColor: "white" }}
           >
-            <h1>List Your Dog</h1>
+            <h1 className="center-align" style={{ marginBottom: "0em" }}>
+              List Your Dog
+            </h1>
             <br />
             <form onSubmit={handleSubmit} id="create-dog-form">
               <div className="form-floating mb-3">
@@ -233,10 +235,15 @@ function CreateDog() {
                   className="form-check-input"
                 />
                 <label htmlFor="spayed_neutered" className="form-check-label">
-                  Spayed/Neutered
+                  Spayed/Neutered?
                 </label>
+                <button
+                  className="btn btn-primary button-align"
+                  style={{ marginTop: "2em" }}
+                >
+                  List
+                </button>
               </div>
-              <button className="btn btn-primary">List</button>
             </form>
           </div>
         </div>
